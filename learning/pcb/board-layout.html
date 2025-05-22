@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3: Board Layout - PCB Design From Scratch</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html">Home</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="../index.html">Learning Resources</a>
+            </li>
+            <li>
+              <a href="index.html">PCB Design From Scratch</a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">Board Layout</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 3: Board Layout</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">Routing Traces and Component Placement</p>
+        </div>
+
+        <div class="content">
+          <p>
+            With your schematic complete and footprints assigned, you're ready
+            for the exciting part: laying out your Printed Circuit Board! PCB
+            layout (or routing) is the process of arranging components and
+            drawing the copper traces that connect them, based on your
+            schematic. This is where your circuit truly takes physical form.
+          </p>
+          <p>
+            In this module, you'll learn how to import your netlist into KiCad's
+            PCB editor (Pcbnew), place components, define the board outline, and
+            route the electrical connections.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li>
+              Your KiCad project with a completed schematic and assigned
+              footprints
+            </li>
+            <li><strong>KiCad</strong> installed</li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">Importing the Netlist:</h3>
+          <p>
+            The netlist is the bridge between your schematic and the PCB layout.
+          </p>
+          <ol>
+            <li>
+              From the KiCad Project Manager, click the "PCB Layout Editor" icon
+              (<i class="fas fa-th-large"></i>). This will open Pcbnew.
+            </li>
+            <li>
+              In Pcbnew, click
+              <strong>Tools > Update PCB from Schematic...</strong> (or press
+              F8).
+            </li>
+            <li>
+              Ensure "Re-associate footprints by reference" and "Update PCB from
+              schematic" are checked.
+            </li>
+            <li>
+              Click <strong>"Update PCB"</strong>. You should see a list of
+              components and nets being added. Click "Close" after the update is
+              complete.
+            </li>
+            <li>
+              Your components will appear as a jumbled pile. Don't worry! These
+              are your footprints, connected by "rat's nest" lines indicating
+              where traces need to be routed.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Defining the Board Outline:</h3>
+          <p>
+            First, you need to define the physical shape and size of your PCB.
+          </p>
+          <ol>
+            <li>
+              Select the <strong>"Edge.Cuts" layer</strong> from the Layers
+              Manager on the right side of Pcbnew.
+            </li>
+            <li>
+              Click the "Add graphic lines" tool (<i
+                class="fas fa-vector-square"
+              ></i
+              >) on the right toolbar.
+            </li>
+            <li>
+              Draw a rectangle or any desired shape for your board outline.
+              Ensure the lines connect to form a closed loop. This defines the
+              physical dimensions of your manufactured PCB.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Component Placement:</h3>
+          <p>
+            Strategic component placement is critical for good signal integrity
+            and manufacturability.
+          </p>
+          <ol>
+            <li>
+              Drag components from the jumbled pile and place them within your
+              board outline.
+            </li>
+            <li>
+              Consider:
+              <ul>
+                <li>
+                  <strong>Logical flow:</strong> Place components that connect
+                  together close to each other.
+                </li>
+                <li>
+                  <strong>Power and ground:</strong> Keep power delivery paths
+                  short and direct.
+                </li>
+                <li>
+                  <strong>Connectors:</strong> Place connectors at the edges of
+                  the board.
+                </li>
+                <li>
+                  <strong>Mechanical constraints:</strong> Account for
+                  enclosures, mounting holes, and other physical limitations.
+                </li>
+                <li>
+                  <strong>Rotation:</strong> Press <strong>'R'</strong> to
+                  rotate selected components.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Routing Traces:</h3>
+          <p>Routing is drawing the copper connections between pads.</p>
+          <ol>
+            <li>
+              Select the <strong>"F.Cu" (Front Copper)</strong> or
+              <strong>"B.Cu" (Back Copper)</strong> layer. For simple boards,
+              you might use only one layer, but two layers (front and back) are
+              common.
+            </li>
+            <li>
+              Click the "Route tracks" tool (<i class="fas fa-route"></i>) on
+              the right toolbar.
+            </li>
+            <li>
+              Click on a pad (e.g., an LED pad). A "rat's nest" line will guide
+              you to its connected pad. Draw the trace, clicking to create
+              corners.
+            </li>
+            <li>
+              To change layers while routing, press <strong>'V'</strong> to
+              place a via. A via is a plated hole that connects traces between
+              different copper layers.
+            </li>
+            <li>
+              Route all the connections indicated by the "rat's nest" lines. Aim
+              for short, direct traces. Avoid sharp 90-degree bends (use
+              45-degree angles).
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Design Rules Check (DRC):</h3>
+          <p>
+            DRC checks your layout against manufacturing constraints (e.g.,
+            minimum trace width, spacing between traces). This is crucial to
+            ensure your board can be manufactured reliably.
+          </p>
+          <ol>
+            <li>
+              Click the "Perform design rules check" icon (<i
+                class="fas fa-check-double"
+              ></i
+              >) on the top toolbar.
+            </li>
+            <li>Click <strong>"Run DRC"</strong>.</li>
+            <li>Review and fix any errors (e.g., "Clearance violation").</li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">3D Viewer (Optional):</h3>
+          <p>
+            KiCad's 3D viewer lets you visualize your board before
+            manufacturing.
+          </p>
+          <ol>
+            <li>Click <strong>View > 3D Viewer</strong> (or press Alt+3).</li>
+            <li>
+              You can rotate and inspect your board to catch any visual issues.
+            </li>
+          </ol>
+
+          <p class="mt-6">
+            You've successfully laid out your first PCB in KiCad! This is a
+            significant achievement, transforming your schematic into a physical
+            design. A well-routed board is not only functional but also more
+            reliable and easier to manufacture. In the final module, you'll
+            learn how to generate the manufacturing files (Gerbers) and prepare
+            your design for a PCB fabrication house.
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="component-footprints.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Previous Module: Component Footprints</span>
+            </a>
+            <a href="fabrication.html" class="button is-primary">
+              <span>Next Module: Fabrication</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

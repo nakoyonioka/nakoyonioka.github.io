@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2: GPIO & Interrupts - STM32 Programming</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html">Home</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 2: GPIO & Interrupts</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">Digital I/O and External Interrupts</p>
+        </div>
+
+        <div class="content">
+          <p>
+            General Purpose Input/Output (GPIO) pins are the most basic and
+            fundamental way for a microcontroller to interact with the outside
+            world. They can be configured as inputs to read digital signals
+            (HIGH/LOW) from buttons or sensors, or as outputs to control LEDs,
+            relays, or other actuators.
+          </p>
+          <p>
+            <strong>Interrupts</strong> are a powerful feature that allows the
+            microcontroller to respond immediately to external events without
+            constantly checking the state of pins (polling). This is crucial for
+            efficient and responsive embedded systems.
+          </p>
+          <p>
+            In this module, you'll learn how to configure GPIO pins using the
+            STM32 HAL (Hardware Abstraction Layer) library and implement
+            external interrupts to trigger actions based on pin changes.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li>
+              An <strong>STM32 Development Board</strong> (e.g., Nucleo,
+              Discovery)
+            </li>
+            <li><strong>STM32CubeIDE</strong> installed and configured</li>
+            <li>A <strong>pushbutton</strong></li>
+            <li>A <strong>220 Ohm resistor</strong> (for LED)</li>
+            <li>An <strong>LED</strong></li>
+            <li>Jumper wires</li>
+            <li>
+              A <strong>breadboard</strong> (optional, for external components)
+            </li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">
+            1. GPIO Output (Blinking an External LED):
+          </h3>
+          <p>
+            Let's start by controlling an external LED, similar to the built-in
+            LED from the previous module.
+          </p>
+          <ol>
+            <li>
+              In STM32CubeIDE, open your existing project or create a new one.
+            </li>
+            <li>Open the `.ioc` file (Device Configuration Tool).</li>
+            <li>
+              Select a free GPIO pin (e.g., PC13, common on some boards, or any
+              other). Click on it and select "GPIO_Output".
+            </li>
+            <li>
+              In the "Pinout & Configuration" tab, go to "System Core > GPIO".
+              Find your chosen pin and set its "User Label" to
+              "EXTERNAL_LED_PIN".
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              Connect your LED circuit: <strong>STM32 GPIO pin</strong> ->
+              <strong>220 Ohm resistor</strong> -> <strong>LED anode</strong> ->
+              <strong>LED cathode</strong> -> <strong>GND</strong>.
+            </li>
+            <li>
+              In your `main.c` file, inside the `while(1)` loop, add:
+              <pre><code class="code-font">
+/* USER CODE BEGIN 3 */
+HAL_GPIO_TogglePin(EXTERNAL_LED_GPIO_Port, EXTERNAL_LED_Pin);
+HAL_Delay(200);
+/* USER CODE END 3 */
+              </code></pre>
+            </li>
+            <li>
+              Build and upload the code. Your external LED should now blink.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">2. GPIO Input (Reading a Button):</h3>
+          <p>
+            Now, let's read the state of a pushbutton. We'll use an external
+            pull-down resistor for clarity, but internal pull-ups are also
+            possible.
+          </p>
+          <ol>
+            <li>
+              In the `.ioc` file, select another free GPIO pin (e.g., PB0).
+              Click on it and select "GPIO_Input".
+            </li>
+            <li>
+              In the "Pinout & Configuration" tab, go to "System Core > GPIO".
+              Find your chosen input pin (e.g., PB0). Set its "User Label" to
+              "BUTTON_PIN" and ensure "GPIO output level" is set to "No pull-up
+              and no pull-down".
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              Connect your pushbutton circuit: <strong>STM32 3.3V</strong> ->
+              <strong>Pushbutton</strong> -> <strong>BUTTON_PIN</strong> ->
+              <strong>10kΩ resistor</strong> -> <strong>GND</strong>. (This is a
+              pull-down configuration).
+            </li>
+            <li>
+              In your `main.c` file, modify the `while(1)` loop to read the
+              button and control the external LED:
+              <pre><code class="code-font">
+/* USER CODE BEGIN 3 */
+if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_SET) {
+  // Button is pressed (pin is HIGH due to pull-down)
+  HAL_GPIO_WritePin(EXTERNAL_LED_GPIO_Port, EXTERNAL_LED_Pin, GPIO_PIN_SET); // Turn LED ON
+} else {
+  // Button is not pressed (pin is LOW)
+  HAL_GPIO_WritePin(EXTERNAL_LED_GPIO_Port, EXTERNAL_LED_Pin, GPIO_PIN_RESET); // Turn LED OFF
+}
+HAL_Delay(10); // Small delay for debouncing
+/* USER CODE END 3 */
+              </code></pre>
+            </li>
+            <li>
+              Build and upload. The external LED should now turn on when you
+              press the button and turn off when released.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">3. External Interrupts (EXTI):</h3>
+          <p>
+            Instead of constantly checking the button state (polling), we can
+            use an interrupt to react only when the button state changes.
+          </p>
+          <ol>
+            <li>
+              In the `.ioc` file, right-click on the
+              <strong>BUTTON_PIN</strong> (e.g., PB0). Select "GPIO_EXTI0" (or
+              the corresponding EXTI line for your pin).
+            </li>
+            <li>
+              In the "Pinout & Configuration" tab, go to "System Core > NVIC".
+              Enable the interrupt for your EXTI line (e.g., "EXTI line0
+              interrupt").
+            </li>
+            <li>
+              In the "GPIO" settings for your BUTTON_PIN, set "GPIO mode" to
+              "External Interrupt Mode with Falling edge trigger" or "Rising
+              edge trigger" depending on your button wiring (e.g., "Falling
+              edge" if using internal pull-up, "Rising edge" if using external
+              pull-down).
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              In `main.c`, remove the button reading logic from the `while(1)`
+              loop.
+            </li>
+            <li>
+              Find the `void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)` function
+              in your `main.c` (it's usually at the bottom, within `USER CODE`
+              sections). This function is called automatically when the
+              interrupt occurs. Add the LED toggling logic here:
+              <pre><code class="code-font">
+/* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if (GPIO_Pin == BUTTON_Pin) // Check if the interrupt was from our button
+  {
+    HAL_GPIO_TogglePin(EXTERNAL_LED_GPIO_Port, EXTERNAL_LED_Pin);
+    // You might add a small delay or debouncing logic here for real buttons
+  }
+}
+/* USER CODE END 4 */
+              </code></pre>
+            </li>
+            <li>
+              Build and upload. Now, each time you press (or release, depending
+              on your trigger) the button, the LED should toggle its state.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Troubleshooting Tips:</h3>
+          <ul>
+            <li>
+              <strong>GPIO not working:</strong>
+              <ul>
+                <li>
+                  Ensure the pin is correctly configured as Input/Output in
+                  `.ioc`.
+                </li>
+                <li>Check your wiring for shorts or open circuits.</li>
+                <li>
+                  Verify you're using the correct `HAL_GPIO_ReadPin` or
+                  `HAL_GPIO_WritePin` macros.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Interrupt not triggering:</strong>
+              <ul>
+                <li>Ensure the EXTI line is enabled in NVIC.</li>
+                <li>
+                  Verify the trigger edge (rising/falling) matches your button
+                  wiring.
+                </li>
+                <li>
+                  Check that the `HAL_GPIO_EXTI_Callback` function is correctly
+                  implemented and not commented out.
+                </li>
+                <li>
+                  For buttons, consider hardware debouncing (capacitor across
+                  button) or software debouncing (in the callback).
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <p class="mt-6">
+            You've successfully controlled GPIO pins and implemented external
+            interrupts on your STM32! Understanding GPIO is fundamental, and
+            interrupts are crucial for building efficient and responsive
+            embedded applications that react to real-world events without
+            wasting CPU cycles.
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="setup.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Previous Module: Development Setup</span>
+            </a>
+            <a href="communication.html" class="button is-primary">
+              <span>Next Module: Communication Protocols</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

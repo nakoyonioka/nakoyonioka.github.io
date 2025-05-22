@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EEG/ECG Biopotential Amplifier - Multi-channel, Isolated Biopotential Acquisition System for physiological signal monitoring"
+    />
+    <title>EEG/ECG Biopotential Amplifier</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../projects.css" />
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="wave-container">
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,60 C300,90 900,30 1200,60 L1200,120 L0,120 Z"
+            fill="#0a0a0a"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-2"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,80 C400,20 800,100 1200,40 L1200,120 L0,120 Z"
+            fill="#1e3a8a"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-3"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,40 C200,100 1000,0 1200,60 L1200,120 L0,120 Z"
+            fill="#dc2626"
+            opacity="0.1"
+          ></path>
+        </svg>
+      </div>
+      <div class="floating-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+      </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav
+      class="navbar is-fixed-top glass-nav"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item logo-brand" href="../../index.html">
+            <div class="logo-container">
+              <i class="fas fa-microchip"></i>
+              <span class="logo-text">Ana's Portfolio</span>
+            </div>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger burger-glow"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item nav-glow" href="../../index.html">Home</a>
+            <a class="navbar-item nav-glow" href="../../index.html#about"
+              >About</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#learning"
+              >Learning Resources</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#contact"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-8 is-offset-2 has-text-centered">
+              <div class="hero-content">
+                <div class="project-badge">
+                  <span class="badge-text">BIOMEDICAL PROJECT</span>
+                </div>
+
+                <h1
+                  class="title is-1 hero-title"
+                  data-text="EEG/ECG Biopotential Amplifier"
+                >
+                  EEG/ECG Biopotential Amplifier
+                </h1>
+
+                <h2 class="subtitle is-3 hero-subtitle typewriter">
+                  Multi-channel, Isolated Biopotential Acquisition System
+                </h2>
+
+                <!-- Enhanced Tags -->
+                <div class="tags-container">
+                  <span class="cyber-tag tag-biomedical"
+                    >Biomedical Electronics</span
+                  >
+                  <span class="cyber-tag tag-analog">Analog Front End</span>
+                  <span class="cyber-tag tag-pcb">PCB Design</span>
+                  <span class="cyber-tag tag-signal">Signal Processing</span>
+                  <span class="cyber-tag tag-isolation">Isolated SPI</span>
+                </div>
+
+                <!-- CTA Buttons with Animation -->
+                <div class="cta-buttons">
+                  <a
+                    href="https://github.com/nakoyonioka/BiosignalAcquisition"
+                    class="btn-cyber btn-primary"
+                    target="_blank"
+                  >
+                    <span class="btn-content">
+                      <i class="fab fa-github"></i>
+                      <span>View on GitHub</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                  <a href="#technical-details" class="btn-cyber btn-secondary">
+                    <span class="btn-content">
+                      <i class="fas fa-heartbeat"></i>
+                      <span>Technical Deep Dive</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Project Summary -->
+    <section class="section project-summary" id="summary">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Project Overview</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-10">
+            <div class="glass-box summary-content">
+              <div class="summary-intro">
+                <p class="intro-text">
+                  This multi-channel biopotential amplifier showcases
+                  cutting-edge biomedical engineering built around
+                  high-precision
+                  <span class="highlight-chip">AD8421ARZ</span> instrumentation
+                  amplifiers. Engineered for
+                  <span class="highlight-efficiency">patient safety</span>
+                  and
+                  <span class="highlight-quality"
+                    >clinical-grade signal quality</span
+                  >, this design represents the perfect fusion of analog
+                  front-end design and medical device engineering.
+                </p>
+              </div>
+
+              <div class="columns is-multiline specs-grid">
+                <!-- Interactive Specs Cards -->
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-heartbeat"></i>
+                        Technical Specifications
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="spec-table">
+                        <div class="spec-row" data-spec="channels">
+                          <span class="spec-label">Input Channels</span>
+                          <span class="spec-value">4 differential</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 80%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="resolution">
+                          <span class="spec-label">ADC Resolution</span>
+                          <span class="spec-value">16-bit (AD7682BCP)</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 90%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="highpass">
+                          <span class="spec-label">High-Pass Filter</span>
+                          <span class="spec-value">0.5Hz cutoff</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 70%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="notch">
+                          <span class="spec-label">Notch Filter</span>
+                          <span class="spec-value">50Hz rejection</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 95%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="lowpass">
+                          <span class="spec-label">Low-Pass Filter</span>
+                          <span class="spec-value">70Hz cutoff</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 85%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="isolation">
+                          <span class="spec-label">Digital Isolation</span>
+                          <span class="spec-value">ISO7341Q</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 100%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-info-circle"></i>
+                        Project Information
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="project-info">
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Date</span>
+                            <span class="info-value">May 2025</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Category</span>
+                            <span class="info-value"
+                              >Biomedical Electronics</span
+                            >
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">6 weeks</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-code-branch"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Version</span>
+                            <span class="info-value">1.0</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-check-circle"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Status</span>
+                            <span class="info-value status-complete"
+                              >Design Complete</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="download-section">
+                        <a href="schematics/eeg_ecg.pdf" class="btn-download">
+                          <i class="fas fa-download"></i>
+                          <span>Download Schematic</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Technical Details -->
+    <section class="section technical-section" id="technical-details">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Deep Dive</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns">
+          <!-- Circuit Architecture Timeline -->
+          <div class="column is-6">
+            <div class="glass-box">
+              <h3 class="subsection-title">Signal Chain Architecture</h3>
+              <div class="architecture-timeline">
+                <div class="timeline-item active" data-stage="electrode">
+                  <div class="timeline-marker">
+                    <i class="fas fa-user-injured"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Electrode Interface</h4>
+                    <p class="timeline-description">
+                      High-impedance differential inputs with DRL reference for
+                      patient safety and common-mode rejection
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">Audio Connectors</span>
+                      <span class="detail-tag">DRL Circuit</span>
+                      <span class="detail-tag">ESD Protection</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="afe">
+                  <div class="timeline-marker">
+                    <i class="fas fa-amplifier"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Analog Front-End</h4>
+                    <p class="timeline-description">
+                      Ultra-low noise instrumentation amplifiers with precision
+                      gain stages for biopotential signals
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">AD8421ARZ INA</span>
+                      <span class="detail-tag">Gain = 101</span>
+                      <span class="detail-tag">CMRR > 80dB</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="filtering">
+                  <div class="timeline-marker">
+                    <i class="fas fa-filter"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Signal Conditioning</h4>
+                    <p class="timeline-description">
+                      Multi-stage filtering for noise rejection and bandwidth
+                      optimization with bypass options
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">0.5Hz HPF</span>
+                      <span class="detail-tag">50Hz Notch</span>
+                      <span class="detail-tag">70Hz LPF</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="conversion">
+                  <div class="timeline-marker">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">ADC & Isolation</h4>
+                    <p class="timeline-description">
+                      High-resolution conversion with galvanic isolation for
+                      patient safety and data integrity
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">16-bit AD7682BCP</span>
+                      <span class="detail-tag">ISO7341Q Isolator</span>
+                      <span class="detail-tag">SPI Interface</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Design Considerations -->
+          <div class="column is-6">
+            <div class="design-considerations">
+              <div class="consideration-card active" data-category="signal">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-wave-square"></i>
+                  </div>
+                  <h3 class="card-title">Signal Fidelity</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Ultra-low noise instrumentation amplifiers for μV
+                        signals</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >High CMRR differential inputs minimize
+                        interference</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Precision voltage reference for ADC accuracy</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >16-bit resolution captures subtle signal
+                        variations</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="safety">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-user-shield"></i>
+                  </div>
+                  <h3 class="card-title">Patient Safety</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-shield-alt"></i>
+                      <span
+                        >Galvanic isolation prevents current flow to
+                        patient</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-battery-full"></i>
+                      <span
+                        >Battery-powered operation eliminates mains
+                        connection</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-heart"></i>
+                      <span
+                        >Driven Right Leg circuit for active CM rejection</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-zap"></i>
+                      <span>ESD protection on all patient connections</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="noise">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-volume-mute"></i>
+                  </div>
+                  <h3 class="card-title">Noise Rejection</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-filter"></i>
+                      <span
+                        >Multi-stage filtering removes DC, 50Hz, and HF
+                        noise</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-crosshairs"></i>
+                      <span>Bypass jumpers for filter customization</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-layer-group"></i>
+                      <span>Separate analog/digital ground planes</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-star"></i>
+                      <span
+                        >Star grounding topology minimizes ground loops</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="power">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <h3 class="card-title">Power Management</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-arrow-up"></i>
+                      <span
+                        >TPS61230DRC boost converter for clean +5V rail</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-arrows-alt-v"></i>
+                      <span>LM2776 charge pump generates -5V from +5V</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-shield-alt"></i>
+                      <span>BQ29723 battery protection and management</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-tachometer-alt"></i>
+                      <span
+                        >REF3025 precision 2.5V reference for stability</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Selector -->
+            <div class="category-selector">
+              <button class="category-btn active" data-category="signal">
+                <i class="fas fa-wave-square"></i>
+                <span>Signal</span>
+              </button>
+              <button class="category-btn" data-category="safety">
+                <i class="fas fa-user-shield"></i>
+                <span>Safety</span>
+              </button>
+              <button class="category-btn" data-category="noise">
+                <i class="fas fa-volume-mute"></i>
+                <span>Noise</span>
+              </button>
+              <button class="category-btn" data-category="power">
+                <i class="fas fa-bolt"></i>
+                <span>Power</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4 has-text-light">Ana</h3>
+            <p class="mb-4 has-text-light-grey">
+              Hardware Engineer & Electronics Enthusiast specializing in
+              embedded systems, PCB design, and industrial electronics.
+            </p>
+            <p class="has-text-light-grey">Athens, Greece</p>
+          </div>
+
+          <div class="column is-4 is-offset-1-desktop is-navigation-center">
+            <h4 class="title is-5 has-text-light">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../index.html#about">About</a></li>
+              <li><a href="../../index.html#portfolio">Portfolio</a></li>
+              <li><a href="../../index.html#learning">Learning</a></li>
+              <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="column is-3 has-text-right">
+            <div class="footer-legal-links">
+              <a href="../../privacy-policy.html" class="has-text-light-grey"
+                >Privacy Policy</a
+              >
+              <a
+                href="../../terms-of-service.html"
+                class="has-text-light-grey mb-0"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-centered">
+          <div class="column is-12 has-text-centered">
+            <p class="copyright has-text-light-grey">
+              &copy; <span id="current-year"></span> Ana. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#top" class="back-to-top" id="backToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../../projects.js"></script>
+  </body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 1: Schematic Capture - PCB Design From Scratch</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html#home">Home</a>
+            <a class="navbar-item" href="../../index.html#about">About</a>
+            <a class="navbar-item" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item is-active" href="../index.html"
+              >Learning Resources</a
+            >
+            <a class="navbar-item" href="../../index.html#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="../index.html">Learning Resources</a>
+            </li>
+            <li>
+              <a href="index.html">PCB Design From Scratch</a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">Schematic Capture</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 1: Schematic Capture</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">Designing Your Circuit Diagram in KiCad</p>
+        </div>
+
+        <div class="content">
+          <p>
+            Schematic capture is the very first step in the PCB design process.
+            It's where you translate your circuit idea into a formal, graphical
+            representation using standard electronic symbols. A well-designed
+            schematic is crucial for clarity, debugging, and ensuring your PCB
+            functions correctly.
+          </p>
+          <p>
+            In this module, you'll learn the basics of using KiCad's schematic
+            editor (Eeschema) to place components, draw wires, and organize your
+            circuit diagram.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li><strong>KiCad</strong> installed on your computer</li>
+            <li>
+              A basic understanding of electronic components (resistors,
+              capacitors, LEDs, etc.)
+            </li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">KiCad Project Setup:</h3>
+          <p>Before you start drawing, create a new KiCad project:</p>
+          <ol>
+            <li>Open KiCad.</li>
+            <li>Go to <strong>File > New Project > New Project...</strong></li>
+            <li>
+              Choose a location and name your project (e.g., "MyFirstPCB").
+            </li>
+            <li>
+              KiCad will create a project folder containing a `.pro` file, a
+              `.sch` file (for schematic), and a `.kicad_pcb` file (for PCB
+              layout).
+            </li>
+            <li>
+              Double-click the `.sch` file (or click the "Schematic Editor" icon
+              in the KiCad Project Manager) to open Eeschema.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Placing Components:</h3>
+          <p>
+            Components are the building blocks of your schematic. KiCad has a
+            vast library of symbols.
+          </p>
+          <ol>
+            <li>
+              Press <strong>'A'</strong> (for "Add Symbol") or click the "Place
+              symbol" icon (<i class="fas fa-microchip"></i>) on the right
+              toolbar.
+            </li>
+            <li>
+              In the "Choose Symbol" dialog, type to search for components. For
+              example:
+              <ul>
+                <li>"R" for resistor</li>
+                <li>"C" for capacitor</li>
+                <li>"LED" for Light Emitting Diode</li>
+                <li>"GND" for ground symbol</li>
+                <li>"VCC" or "5V" for power symbols</li>
+              </ul>
+            </li>
+            <li>
+              Select a component and click <strong>OK</strong>. Place it on the
+              schematic sheet.
+            </li>
+            <li>
+              Repeat to add all necessary components for a simple blinking LED
+              circuit:
+              <ul>
+                <li>1 x Arduino Uno (search for "Arduino_Uno_R3")</li>
+                <li>1 x LED (search for "LED")</li>
+                <li>1 x Resistor (search for "R")</li>
+                <li>1 x Power Flag (search for "PWR_FLAG")</li>
+                <li>1 x Ground (search for "GND")</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Wiring Components:</h3>
+          <p>
+            Once components are placed, you need to connect them with wires.
+          </p>
+          <ol>
+            <li>
+              Press <strong>'W'</strong> (for "Wire") or click the "Place wire"
+              icon (<i class="fas fa-bezier-curve"></i>) on the right toolbar.
+            </li>
+            <li>
+              Click on the end of one component's pin and drag the wire to the
+              pin of another component. Click again to place a corner or finish
+              the wire.
+            </li>
+            <li>
+              Connect the LED and resistor in series, then connect this series
+              to an Arduino digital pin (e.g., D13) and GND.
+            </li>
+            <li>
+              Connect the 5V output of the Arduino to a "PWR_FLAG" symbol, and
+              the GND of the Arduino to a "GND" symbol. These power symbols are
+              important for KiCad's Electrical Rules Check (ERC).
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Annotating and Numbering:</h3>
+          <p>
+            Each component needs a unique reference designator (e.g., R1, C1,
+            U1).
+          </p>
+          <ol>
+            <li>
+              Click the "Annotate schematic symbols" icon (<i
+                class="fas fa-tags"
+              ></i
+              >) on the top toolbar.
+            </li>
+            <li>
+              Click <strong>"Annotate"</strong> in the dialog box. KiCad will
+              automatically assign unique numbers (e.g., R1, R2, D1).
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Electrical Rules Check (ERC):</h3>
+          <p>
+            ERC checks for common errors in your schematic, like unconnected
+            pins or power conflicts.
+          </p>
+          <ol>
+            <li>
+              Click the "Perform electrical rules check" icon (<i
+                class="fas fa-check-circle"
+              ></i
+              >) on the top toolbar.
+            </li>
+            <li>Click <strong>"Run ERC"</strong>.</li>
+            <li>Review any warnings or errors. Fix them before proceeding!</li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Netlist Generation:</h3>
+          <p>
+            The netlist is a text file that describes all component connections.
+            It's used to transfer the schematic information to the PCB layout
+            tool.
+          </p>
+          <ol>
+            <li>
+              Click the "Generate netlist" icon (<i class="fas fa-list-ul"></i>)
+              on the top toolbar.
+            </li>
+            <li>Ensure "Pcbnew" tab is selected.</li>
+            <li>
+              Click <strong>"Generate Netlist"</strong>. Save it in your project
+              folder.
+            </li>
+          </ol>
+
+          <p class="mt-6">
+            You've successfully completed schematic capture for a basic circuit
+            in KiCad! This is the blueprint for your PCB. A clean and error-free
+            schematic is paramount for a smooth PCB layout process. In the next
+            module, you'll learn about component footprints, which are the
+            physical representations of your schematic symbols on the PCB.
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="index.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Back to Course Overview</span>
+            </a>
+            <a href="component-footprints.html" class="button is-primary">
+              <span>Next Module: Component Footprints</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

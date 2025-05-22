@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3: Communication Protocols - STM32 Programming</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html#home">Home</a>
+            <a class="navbar-item" href="../../index.html#about">About</a>
+            <a class="navbar-item" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item is-active" href="../index.html"
+              >Learning Resources</a
+            >
+            <a class="navbar-item" href="../../index.html#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="../index.html">Learning Resources</a>
+            </li>
+            <li>
+              <a href="index.html">STM32 Programming</a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">Communication Protocols</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 3: Communication Protocols</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">UART, SPI, and I2C Interfaces</p>
+        </div>
+
+        <div class="content">
+          <p>
+            Microcontrollers rarely work in isolation. They need to communicate
+            with other devices, such as sensors, displays, other
+            microcontrollers, or even computers. This communication happens
+            through various
+            <strong>communication protocols</strong>, each with its own
+            advantages and use cases.
+          </p>
+          <p>
+            In this module, you'll get an overview of three common serial
+            communication protocols:
+            <strong>UART (Universal Asynchronous Receiver/Transmitter)</strong>,
+            <strong>SPI (Serial Peripheral Interface)</strong>, and
+            <strong>I2C (Inter-Integrated Circuit)</strong>. You'll learn their
+            basic principles and how to configure them in STM32CubeIDE using the
+            HAL library.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li>An <strong>STM32 Development Board</strong></li>
+            <li><strong>STM32CubeIDE</strong> installed</li>
+            <li>
+              (Optional, but recommended for hands-on)
+              <ul>
+                <li>USB-to-UART converter (e.g., FTDI, CP2102)</li>
+                <li>Small OLED display (e.g., SSD1306 I2C OLED)</li>
+                <li>
+                  SPI-compatible sensor (e.g., MPU6050 accelerometer/gyroscope)
+                </li>
+                <li>Jumper wires, breadboard</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">
+            1. UART (Universal Asynchronous Receiver/Transmitter):
+          </h3>
+          <p>
+            UART is a simple, two-wire (TX/RX) asynchronous serial communication
+            protocol. It's commonly used for debugging (like Arduino's Serial
+            Monitor) or communicating with modules like Bluetooth, GPS, or
+            Wi-Fi.
+          </p>
+          <h4 class="title is-4 mt-4">Configuration in STM32CubeIDE:</h4>
+          <ol>
+            <li>Open your `.ioc` file.</li>
+            <li>
+              Go to "Connectivity" and select "USART1" (or any available
+              USART/UART).
+            </li>
+            <li>Set "Mode" to "Asynchronous".</li>
+            <li>
+              In the "Parameter Settings" tab, configure:
+              <ul>
+                <li>
+                  <strong>Baud Rate:</strong> Common values are 9600, 115200.
+                </li>
+                <li><strong>Word Length:</strong> 8 Bits.</li>
+                <li><strong>Parity:</strong> None.</li>
+                <li><strong>Stop Bits:</strong> 1.</li>
+              </ul>
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              In `main.c`, you can use HAL functions to send/receive data:
+              <pre><code class="code-font">
+/* USER CODE BEGIN 0 */
+#include &lt;string.h&gt; // For strlen()
+/* USER CODE END 0 */
+
+// ... inside while(1) loop ...
+/* USER CODE BEGIN 3 */
+  char msg[] = "Hello from STM32 via UART!\r\n";
+  HAL_UART_Transmit(&huskart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+  HAL_Delay(1000);
+/* USER CODE END 3 */
+              </code></pre>
+              <p>
+                Connect your STM32's configured UART TX pin to the RX of a
+                USB-to-UART converter, and STM32's RX to the TX of the
+                converter. Connect GNDs. Use a serial terminal program on your
+                computer (e.g., PuTTY, CoolTerm) to see the messages.
+              </p>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">2. SPI (Serial Peripheral Interface):</h3>
+          <p>
+            SPI is a synchronous, full-duplex, master-slave communication
+            protocol that uses four wires: SCK (Clock), MOSI (Master Out, Slave
+            In), MISO (Master In, Slave Out), and SS/CS (Slave Select/Chip
+            Select). It's faster than UART and commonly used for displays, SD
+            cards, and some sensors.
+          </p>
+          <h4 class="title is-4 mt-4">Configuration in STM32CubeIDE:</h4>
+          <ol>
+            <li>Open your `.ioc` file.</li>
+            <li>
+              Go to "Connectivity" and select "SPI1" (or any available SPI).
+            </li>
+            <li>Set "Mode" to "Full-Duplex Master".</li>
+            <li>
+              Configure the "Parameter Settings" (e.g., "Frame Format", "Data
+              Size", "Prescaler").
+            </li>
+            <li>
+              Identify the pins for SCK, MOSI, MISO, and a GPIO output for CS.
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              Example SPI transmit (assuming `hspi1` is your SPI handle):
+              <pre><code class="code-font">
+/* USER CODE BEGIN 3 */
+  uint8_t tx_data[] = {0xAA, 0xBB, 0xCC};
+  // Pull CS low to select the slave
+  HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+  HAL_SPI_Transmit(&hspi1, tx_data, sizeof(tx_data), HAL_MAX_DELAY);
+  // Pull CS high to deselect the slave
+  HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
+  HAL_Delay(500);
+/* USER CODE END 3 */
+              </code></pre>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">3. I2C (Inter-Integrated Circuit):</h3>
+          <p>
+            I2C is a two-wire, multi-master, multi-slave serial bus. It uses SDA
+            (Serial Data Line) and SCL (Serial Clock Line). It's slower than SPI
+            but requires fewer pins and is great for connecting multiple
+            low-speed peripherals like EEPROMs, real-time clocks (RTCs), and
+            many sensors.
+          </p>
+          <h4 class="title is-4 mt-4">Configuration in STM32CubeIDE:</h4>
+          <ol>
+            <li>Open your `.ioc` file.</li>
+            <li>
+              Go to "Connectivity" and select "I2C1" (or any available I2C).
+            </li>
+            <li>Set "Mode" to "I2C".</li>
+            <li>
+              Configure "Parameter Settings" (e.g., "Speed Mode" to "Fast Mode"
+              for 400kHz).
+            </li>
+            <li>Generate code by saving the `.ioc` file.</li>
+            <li>
+              Example I2C write (assuming `hi2c1` is your I2C handle,
+              `slave_address` is 7-bit address shifted left by 1):
+              <pre><code class="code-font">
+/* USER CODE BEGIN 3 */
+  uint8_t slave_address = 0x3C << 1; // Example: OLED display address
+  uint8_t data_to_send[] = {0x00, 0xAF}; // Example: OLED command to turn on display
+
+  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&hi2c1, slave_address, data_to_send, sizeof(data_to_send), HAL_MAX_DELAY);
+  if (status != HAL_OK) {
+    // Handle error (e.g., toggle an LED)
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  }
+  HAL_Delay(1000);
+/* USER CODE END 3 */
+              </code></pre>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Troubleshooting Tips:</h3>
+          <ul>
+            <li>
+              <strong>UART:</strong>
+              <ul>
+                <li>Baud rate mismatch is the most common issue.</li>
+                <li>
+                  Cross-check TX/RX connections (STM32 TX to converter RX, STM32
+                  RX to converter TX).
+                </li>
+                <li>Ensure GNDs are connected.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>SPI:</strong>
+              <ul>
+                <li>
+                  Incorrect clock polarity/phase (CPOL/CPHA) settings. Refer to
+                  the slave device's datasheet.
+                </li>
+                <li>
+                  CS pin not being correctly toggled (pulled low before
+                  transmit, high after).
+                </li>
+                <li>MISO/MOSI swapped.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>I2C:</strong>
+              <ul>
+                <li>
+                  Missing pull-up resistors on SDA and SCL lines (usually
+                  4.7kΩ).
+                </li>
+                <li>
+                  Incorrect slave address (remember it's often 7-bit, and you
+                  might need to shift it left by 1 for HAL functions).
+                </li>
+                <li>Device not powered or not connected correctly.</li>
+                <li>Bus busy errors (reset the device or MCU).</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p class="mt-6">
+            You've now gained an understanding of three essential communication
+            protocols for STM32 microcontrollers. Mastering these protocols will
+            enable your embedded projects to interact with a vast array of
+            external components and systems, opening up endless possibilities
+            for complex and intelligent designs.
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="hal-gpio.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Previous Module: GPIO & Interrupts</span>
+            </a>
+            <a href="freertos.html" class="button is-primary">
+              <span>Next Module: FreeRTOS Integration</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

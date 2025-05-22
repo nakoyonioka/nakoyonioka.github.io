@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Adjustable Dual-Output Power Supply with current limiting protection - High-precision electronics project for lab use"
+    />
+    <title>Adjustable Power Supply</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../projects.css" />
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="wave-container">
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,60 C300,90 900,30 1200,60 L1200,120 L0,120 Z"
+            fill="#0a0a0a"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-2"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,80 C400,20 800,100 1200,40 L1200,120 L0,120 Z"
+            fill="#dc2626"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-3"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,40 C200,100 1000,0 1200,60 L1200,120 L0,120 Z"
+            fill="#4ecdc4"
+            opacity="0.1"
+          ></path>
+        </svg>
+      </div>
+      <div class="floating-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+      </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav
+      class="navbar is-fixed-top glass-nav"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item logo-brand" href="../../index.html">
+            <div class="logo-container">
+              <i class="fas fa-microchip"></i>
+              <span class="logo-text">Ana's Portfolio</span>
+            </div>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger burger-glow"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item nav-glow" href="../../index.html">Home</a>
+            <a class="navbar-item nav-glow" href="../../index.html#about"
+              >About</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#learning"
+              >Learning Resources</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#contact"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-8 is-offset-2 has-text-centered">
+              <div class="hero-content">
+                <div class="project-badge">
+                  <span class="badge-text">POWER ELECTRONICS</span>
+                </div>
+
+                <h1
+                  class="title is-1 hero-title"
+                  data-text="Adjustable Power Supply"
+                >
+                  Adjustable Power Supply
+                </h1>
+
+                <h2 class="subtitle is-3 hero-subtitle typewriter">
+                  Dual-Output 5V/12V with Current Limiting
+                </h2>
+
+                <!-- Enhanced Tags -->
+                <div class="tags-container">
+                  <span class="cyber-tag tag-power">Power Electronics</span>
+                  <span class="cyber-tag tag-circuit">Circuit Design</span>
+                  <span class="cyber-tag tag-kicad">KiCad</span>
+                  <span class="cyber-tag tag-safety">Safety Features</span>
+                </div>
+
+                <!-- CTA Buttons with Animation -->
+                <div class="cta-buttons">
+                  <a
+                    href="https://github.com/nakoyonioka/PSU"
+                    class="btn-cyber btn-primary"
+                    target="_blank"
+                  >
+                    <span class="btn-content">
+                      <i class="fab fa-github"></i>
+                      <span>View on GitHub</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                  <a href="#technical-details" class="btn-cyber btn-secondary">
+                    <span class="btn-content">
+                      <i class="fas fa-microscope"></i>
+                      <span>Technical Deep Dive</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Project Summary -->
+    <section class="section project-summary" id="summary">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Project Overview</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-10">
+            <div class="glass-box summary-content">
+              <div class="summary-intro">
+                <p class="intro-text">
+                  This adjustable power supply delivers
+                  <span class="highlight-precision"
+                    >precision voltage regulation</span
+                  >
+                  with advanced
+                  <span class="highlight-protection">protection circuitry</span>
+                  for professional electronics development. Featuring
+                  <span class="highlight-dual">dual output capabilities</span>
+                  and intelligent current limiting, it represents an essential
+                  tool for any electronics laboratory.
+                </p>
+              </div>
+
+              <div class="columns is-multiline specs-grid">
+                <!-- Interactive Specs Cards -->
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-bolt"></i>
+                        Technical Specifications
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="spec-table">
+                        <div class="spec-row" data-spec="input">
+                          <span class="spec-label">Input Voltage</span>
+                          <span class="spec-value">18V - 24V DC</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 80%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="output">
+                          <span class="spec-label">Output Options</span>
+                          <span class="spec-value">5V / 12V DC</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 100%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="current">
+                          <span class="spec-label">Max Current</span>
+                          <span class="spec-value">3A (adjustable)</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 90%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="ripple">
+                          <span class="spec-label">Ripple Voltage</span>
+                          <span class="spec-value">&lt; 50mV</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 95%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="regulation">
+                          <span class="spec-label">Load Regulation</span>
+                          <span class="spec-value">&lt; 1%</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 98%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="response">
+                          <span class="spec-label">Response Time</span>
+                          <span class="spec-value">&lt; 10μs</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 92%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-info-circle"></i>
+                        Project Information
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="project-info">
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Date</span>
+                            <span class="info-value">May 2025</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Category</span>
+                            <span class="info-value">Power Electronics</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">4 weeks</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-code-branch"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Version</span>
+                            <span class="info-value">2.0</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-check-circle"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Status</span>
+                            <span class="info-value status-complete"
+                              >Design Complete</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="download-section">
+                        <a
+                          href="schematics/power_supply.pdf"
+                          class="btn-download"
+                        >
+                          <i class="fas fa-download"></i>
+                          <span>Download Schematic</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Technical Details -->
+    <section class="section technical-section" id="technical-details">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Architecture</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns">
+          <!-- Circuit Architecture Timeline -->
+          <div class="column is-6">
+            <div class="glass-box">
+              <h3 class="subsection-title">Circuit Design Flow</h3>
+              <div class="architecture-timeline">
+                <div class="timeline-item active" data-stage="input">
+                  <div class="timeline-marker">
+                    <i class="fas fa-plug"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Input & Filtering Stage</h4>
+                    <p class="timeline-description">
+                      18V-24V DC input with comprehensive transient protection
+                      and multi-stage filtering
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">TVS Protection</span>
+                      <span class="detail-tag">Multi-Cap Filtering</span>
+                      <span class="detail-tag">Barrel Jack Input</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="regulation">
+                  <div class="timeline-marker">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Dual Regulation</h4>
+                    <p class="timeline-description">
+                      Hybrid linear and switching regulation for optimal
+                      efficiency and noise performance
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">L7805 Linear</span>
+                      <span class="detail-tag">TPS54331DR Switch</span>
+                      <span class="detail-tag">Thermal Protection</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="selection">
+                  <div class="timeline-marker">
+                    <i class="fas fa-random"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Output Selection</h4>
+                    <p class="timeline-description">
+                      Relay-based switching between 5V and 12V outputs with
+                      complete isolation
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">Relay Switching</span>
+                      <span class="detail-tag">LED Indicators</span>
+                      <span class="detail-tag">Isolation</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="protection">
+                  <div class="timeline-marker">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Current Protection</h4>
+                    <p class="timeline-description">
+                      Fast-response current limiting with precision sensing and
+                      hysteresis control
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">LM393 Comparator</span>
+                      <span class="detail-tag">100mΩ Sense</span>
+                      <span class="detail-tag">&lt;10μs Response</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="output">
+                  <div class="timeline-marker">
+                    <i class="fas fa-tachometer-alt"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Measurement & Output</h4>
+                    <p class="timeline-description">
+                      Precision measurement circuits with banana plug connectors
+                      for laboratory use
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">Differential Amp</span>
+                      <span class="detail-tag">Banana Plugs</span>
+                      <span class="detail-tag">Ground Reference</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Design Considerations -->
+          <div class="column is-6">
+            <div class="design-considerations">
+              <div class="consideration-card active" data-category="circuit">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <h3 class="card-title">Circuit Design Principles</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Linear regulation provides clean 5V with excellent
+                        noise characteristics</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Switching regulation delivers efficient 12V with 85%
+                        efficiency</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Dedicated feedback networks ensure tight
+                        regulation</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Fast-response comparators for rapid fault
+                        detection</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="pcb">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-drafting-compass"></i>
+                  </div>
+                  <h3 class="card-title">PCB Layout Strategies</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-layer-group"></i>
+                      <span
+                        >Four-layer PCB with dedicated power and ground
+                        planes</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-route"></i>
+                      <span
+                        >Wide copper traces (>60 mil) for main power paths</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-star"></i>
+                      <span>Star grounding topology for analog sections</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-fire"></i>
+                      <span
+                        >Thermal relief patterns and copper pour for heat
+                        dissipation</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="protection">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h3 class="card-title">Protection Systems</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-tachometer-alt"></i>
+                      <span
+                        >Precision current limiting with 100mΩ sense
+                        resistor</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-sliders-h"></i>
+                      <span>Adjustable current threshold from 100mA to 3A</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-wave-square"></i>
+                      <span
+                        >Hysteresis circuit prevents oscillation at
+                        threshold</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-bolt"></i>
+                      <span>TVS diodes for input transient protection</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="measurement">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                  </div>
+                  <h3 class="card-title">Measurement System</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-chart-line"></i>
+                      <span
+                        >Differential amplifier using LM358 for current
+                        measurement</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-percentage"></i>
+                      <span
+                        >Precision 1% resistors for voltage measurement</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-filter"></i>
+                      <span
+                        >Low-pass filtering on measurement paths reduces
+                        noise</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-plug"></i>
+                      <span>Connection points for external meters</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Selector -->
+            <div class="category-selector">
+              <button class="category-btn active" data-category="circuit">
+                <i class="fas fa-microchip"></i>
+                <span>Circuit</span>
+              </button>
+              <button class="category-btn" data-category="pcb">
+                <i class="fas fa-drafting-compass"></i>
+                <span>PCB</span>
+              </button>
+              <button class="category-btn" data-category="protection">
+                <i class="fas fa-shield-alt"></i>
+                <span>Protection</span>
+              </button>
+              <button class="category-btn" data-category="measurement">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Measurement</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4 has-text-light">Ana</h3>
+            <p class="mb-4 has-text-light-grey">
+              Hardware Engineer & Electronics Enthusiast specializing in
+              embedded systems, PCB design, and industrial electronics.
+            </p>
+            <p class="has-text-light-grey">Athens, Greece</p>
+          </div>
+
+          <div class="column is-4 is-offset-1-desktop is-navigation-center">
+            <h4 class="title is-5 has-text-light">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../index.html#about">About</a></li>
+              <li><a href="../../index.html#portfolio">Portfolio</a></li>
+              <li><a href="../../index.html#learning">Learning</a></li>
+              <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="column is-3 has-text-right">
+            <div class="footer-legal-links">
+              <a href="../../privacy-policy.html" class="has-text-light-grey"
+                >Privacy Policy</a
+              >
+              <a
+                href="../../terms-of-service.html"
+                class="has-text-light-grey mb-0"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-centered">
+          <div class="column is-12 has-text-centered">
+            <p class="copyright has-text-light-grey">
+              &copy; <span id="current-year"></span> Ana. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="backToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../../projects.js"></script>
+  </body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Class D Stereo Amplifier with TPA3144D2 - High-efficiency audio amplifier project for clean, powerful sound"
+    />
+    <title>Audio Power Amplifier</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../projects.css" />
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="wave-container">
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,60 C300,90 900,30 1200,60 L1200,120 L0,120 Z"
+            fill="#0a0a0a"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-2"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,80 C400,20 800,100 1200,40 L1200,120 L0,120 Z"
+            fill="#1e3a8a"
+            opacity="0.1"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-3"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,40 C200,100 1000,0 1200,60 L1200,120 L0,120 Z"
+            fill="#dc2626"
+            opacity="0.1"
+          ></path>
+        </svg>
+      </div>
+      <div class="floating-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+      </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav
+      class="navbar is-fixed-top glass-nav"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item logo-brand" href="../../index.html">
+            <div class="logo-container">
+              <i class="fas fa-microchip"></i>
+              <span class="logo-text">Ana's Portfolio</span>
+            </div>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger burger-glow"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item nav-glow" href="../../index.html">Home</a>
+            <a class="navbar-item nav-glow" href="../../index.html#about"
+              >About</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#learning"
+              >Learning Resources</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#contact"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-8 is-offset-2 has-text-centered">
+              <div class="hero-content">
+                <div class="project-badge">
+                  <span class="badge-text">FEATURED PROJECT</span>
+                </div>
+
+                <h1
+                  class="title is-1 hero-title"
+                  data-text="Audio Power Amplifier"
+                >
+                  Audio Power Amplifier
+                </h1>
+
+                <h2 class="subtitle is-3 hero-subtitle typewriter">
+                  Class D Stereo Amplifier with TPA3144D2
+                </h2>
+
+                <!-- Enhanced Tags -->
+                <div class="tags-container">
+                  <span class="cyber-tag tag-audio">Audio Electronics</span>
+                  <span class="cyber-tag tag-pcb">PCB Design</span>
+                  <span class="cyber-tag tag-class-d">Class D Technology</span>
+                  <span class="cyber-tag tag-signal">Signal Processing</span>
+                </div>
+
+                <!-- CTA Buttons with Animation -->
+                <div class="cta-buttons">
+                  <a
+                    href="https://github.com/nakoyonioka/AudioAmp"
+                    class="btn-cyber btn-primary"
+                    target="_blank"
+                  >
+                    <span class="btn-content">
+                      <i class="fab fa-github"></i>
+                      <span>View on GitHub</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                  <a href="#technical-details" class="btn-cyber btn-secondary">
+                    <span class="btn-content">
+                      <i class="fas fa-microscope"></i>
+                      <span>Technical Deep Dive</span>
+                    </span>
+                    <div class="btn-glitch"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Project Summary -->
+    <section class="section project-summary" id="summary">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Project Overview</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-10">
+            <div class="glass-box summary-content">
+              <div class="summary-intro">
+                <p class="intro-text">
+                  This stereo audio power amplifier showcases cutting-edge
+                  Class-D technology built around the
+                  <span class="highlight-chip">TPA3144D2</span> from Texas
+                  Instruments. Engineered for
+                  <span class="highlight-efficiency">maximum efficiency</span>
+                  and
+                  <span class="highlight-quality">pristine audio quality</span>,
+                  this design represents the perfect fusion of power electronics
+                  and audio engineering.
+                </p>
+              </div>
+
+              <div class="columns is-multiline specs-grid">
+                <!-- Interactive Specs Cards -->
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-bolt"></i>
+                        Technical Specifications
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="spec-table">
+                        <div class="spec-row" data-spec="voltage">
+                          <span class="spec-label">Supply Voltage</span>
+                          <span class="spec-value">10V - 26V DC</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 85%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="power">
+                          <span class="spec-label">Output Power</span>
+                          <span class="spec-value">15W per channel</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 75%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="frequency">
+                          <span class="spec-label">Frequency Response</span>
+                          <span class="spec-value">20Hz - 20kHz</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 100%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="thd">
+                          <span class="spec-label">THD+N</span>
+                          <span class="spec-value">&lt; 0.1%</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 95%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="snr">
+                          <span class="spec-label">SNR</span>
+                          <span class="spec-value">&gt; 95dB</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 90%"></div>
+                          </div>
+                        </div>
+                        <div class="spec-row" data-spec="efficiency">
+                          <span class="spec-label">Efficiency</span>
+                          <span class="spec-value">Up to 90%</span>
+                          <div class="spec-bar">
+                            <div class="spec-fill" style="width: 90%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="spec-card interactive-card">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="fas fa-info-circle"></i>
+                        Project Information
+                      </h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="project-info">
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Date</span>
+                            <span class="info-value">May 2025</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Category</span>
+                            <span class="info-value">Audio Electronics</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">3 weeks</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-code-branch"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Version</span>
+                            <span class="info-value">1.0</span>
+                          </div>
+                        </div>
+                        <div class="info-item">
+                          <div class="info-icon">
+                            <i class="fas fa-check-circle"></i>
+                          </div>
+                          <div class="info-content">
+                            <span class="info-label">Status</span>
+                            <span class="info-value status-complete"
+                              >Complete</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="download-section">
+                        <a
+                          href="schematics/audio_power_amp.pdf"
+                          class="btn-download"
+                        >
+                          <i class="fas fa-download"></i>
+                          <span>Download Schematic</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Technical Details -->
+    <section class="section technical-section" id="technical-details">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Deep Dive</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="columns">
+          <!-- Circuit Architecture Timeline -->
+          <div class="column is-6">
+            <div class="glass-box">
+              <h3 class="subsection-title">Circuit Architecture Flow</h3>
+              <div class="architecture-timeline">
+                <div class="timeline-item active" data-stage="power">
+                  <div class="timeline-marker">
+                    <i class="fas fa-plug"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Power Supply Stage</h4>
+                    <p class="timeline-description">
+                      Clean, regulated power delivery with advanced filtering
+                      and EMI suppression
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">10V-26V DC Input</span>
+                      <span class="detail-tag">220μF Bulk Capacitors</span>
+                      <span class="detail-tag">Ferrite Bead Filtering</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="input">
+                  <div class="timeline-marker">
+                    <i class="fas fa-volume-up"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Input Stage</h4>
+                    <p class="timeline-description">
+                      High-fidelity audio input with precision volume control
+                      and impedance matching
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">RCA Connectors</span>
+                      <span class="detail-tag">Volume Control</span>
+                      <span class="detail-tag">AC Coupling</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="amplifier">
+                  <div class="timeline-marker">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Amplifier Core</h4>
+                    <p class="timeline-description">
+                      TPA3144D2 with advanced PWM modulation and protection
+                      circuits
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">400kHz PWM</span>
+                      <span class="detail-tag">Differential Inputs</span>
+                      <span class="detail-tag">Bootstrap Drive</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-stage="output">
+                  <div class="timeline-marker">
+                    <i class="fas fa-wave-square"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h4 class="timeline-title">Output Filtering</h4>
+                    <p class="timeline-description">
+                      Precision LC filters for clean audio reconstruction and
+                      EMI suppression
+                    </p>
+                    <div class="timeline-details">
+                      <span class="detail-tag">LC Networks</span>
+                      <span class="detail-tag">Low ESR Components</span>
+                      <span class="detail-tag">4Ω Load Capability</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Design Considerations -->
+          <div class="column is-6">
+            <div class="design-considerations">
+              <div class="consideration-card active" data-category="circuit">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <h3 class="card-title">Circuit Design Principles</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Differential input stage minimizes common-mode
+                        noise</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Configurable gain for various input sources</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>PWM switching minimizes power loss</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Precision output filtering for clean audio</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="pcb">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-drafting-compass"></i>
+                  </div>
+                  <h3 class="card-title">PCB Layout Excellence</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-layer-group"></i>
+                      <span>Four-layer PCB with dedicated power planes</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-route"></i>
+                      <span>High-current paths with wide traces (>40 mil)</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-crosshairs"></i>
+                      <span>Strategic component placement optimization</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-star"></i>
+                      <span>Star grounding topology for analog sections</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="emi">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h3 class="card-title">EMI Suppression</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-filter"></i>
+                      <span
+                        >Optimized LC filters attenuate switching
+                        frequency</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-magnet"></i>
+                      <span>Ferrite beads block high-frequency noise</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-circle"></i>
+                      <span>Minimized current loop areas in ground plane</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-broadcast-tower"></i>
+                      <span
+                        >Component placement reduces radiation coupling</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="consideration-card" data-category="thermal">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-temperature-high"></i>
+                  </div>
+                  <h3 class="card-title">Thermal Management</h3>
+                </div>
+                <div class="card-content">
+                  <div class="principle-list">
+                    <div class="principle-item">
+                      <i class="fas fa-square"></i>
+                      <span>Large copper pour for thermal pad connection</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-arrows-alt-v"></i>
+                      <span>Multiple thermal vias to ground plane</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-wind"></i>
+                      <span>Optimized for natural convection cooling</span>
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-fan"></i>
+                      <span>Optional heatsink mounting provision</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Selector -->
+            <div class="category-selector">
+              <button class="category-btn active" data-category="circuit">
+                <i class="fas fa-microchip"></i>
+                <span>Circuit</span>
+              </button>
+              <button class="category-btn" data-category="pcb">
+                <i class="fas fa-drafting-compass"></i>
+                <span>PCB</span>
+              </button>
+              <button class="category-btn" data-category="emi">
+                <i class="fas fa-shield-alt"></i>
+                <span>EMI</span>
+              </button>
+              <button class="category-btn" data-category="thermal">
+                <i class="fas fa-temperature-high"></i>
+                <span>Thermal</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4 has-text-light">Ana</h3>
+            <p class="mb-4 has-text-light-grey">
+              Hardware Engineer & Electronics Enthusiast specializing in
+              embedded systems, PCB design, and industrial electronics.
+            </p>
+            <p class="has-text-light-grey">Athens, Greece</p>
+          </div>
+
+          <div class="column is-4 is-offset-1-desktop is-navigation-center">
+            <h4 class="title is-5 has-text-light">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../index.html#about">About</a></li>
+              <li><a href="../../index.html#portfolio">Portfolio</a></li>
+              <li><a href="../../index.html#learning">Learning</a></li>
+              <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="column is-3 has-text-right">
+            <div class="footer-legal-links">
+              <a href="../../privacy-policy.html" class="has-text-light-grey"
+                >Privacy Policy</a
+              >
+              <a
+                href="../../terms-of-service.html"
+                class="has-text-light-grey mb-0"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-centered">
+          <div class="column is-12 has-text-centered">
+            <p class="copyright has-text-light-grey">
+              &copy; <span id="current-year"></span> Ana. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="backToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../../projects.js"></script>
+  </body>
+</html>

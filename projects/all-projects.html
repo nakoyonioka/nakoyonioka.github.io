@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+      style="background-color: var(--primary-dark)"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html">Home</a>
+            <a class="navbar-item" href="../../index.html#about">About</a>
+            <a class="navbar-item" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item" href="../../index.html#learning"
+              >Learning Resources</a
+            >
+            <a class="navbar-item" href="../../index.html#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-medium" style="padding-top: 52px">
+      <div class="hero-gradient-overlay"></div>
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 has-text-white terminal-text">All Projects</h1>
+      </div>
+      <div class="circuit-traces" id="heroTraces"></div>
+    </section>
+
+    <section id="portfolio" class="section portfolio-section">
+      <div class="container">
+        <div class="columns is-multiline project-list">
+          <div
+            class="column is-one-third-desktop is-half-tablet project-item power"
+          >
+            <div
+              class="card project-card"
+              data-href="projects/power-supply/index.html"
+            >
+              <div class="card-image project-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://placehold.co/800x600/4CAF50/FFFFFF?text=Power+Supply"
+                    alt="Adjustable Power Supply"
+                  />
+                  <div class="project-overlay">
+                    <p class="project-category">Power Supply</p>
+                    <h3 class="title is-5 project-title">
+                      Adjustable Power Supply
+                    </h3>
+                    <p class="project-description">
+                      Dual-Output 5V/12V with Current Limiting Protection
+                    </p>
+                    <a
+                      href="projects/power-supply/index.html"
+                      class="project-link"
+                      >View Details</a
+                    >
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content project-info">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4 project-info-title">
+                      Adjustable Power Supply
+                    </p>
+                    <p class="subtitle is-6 project-info-category">
+                      <i class="far fa-calendar-alt mr-1"></i> May 2025
+                    </p>
+                  </div>
+                </div>
+                <div class="content project-info-description">
+                  A versatile lab power supply with selectable 5V/12V outputs,
+                  adjustable current limiting protection, and built-in
+                  voltage/current monitoring for safe and reliable electronic
+                  circuit testing.
+                </div>
+                <div class="tags">
+                  <span class="tag project-tag">Power Electronics</span>
+                  <span class="tag project-tag">KiCad</span>
+                  <span class="tag project-tag">Circuit Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="column is-one-third-desktop is-half-tablet project-item biomedical"
+          >
+            <div
+              class="card project-card"
+              data-href="projects/bioamp/index.html"
+            >
+              <div class="card-image project-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://placehold.co/800x600/2196F3/FFFFFF?text=BioAmp"
+                    alt="EEG/ECG Biopotential Amplifier"
+                  />
+                  <div class="project-overlay">
+                    <p class="project-category">Biomedical</p>
+                    <h3 class="title is-5 project-title">
+                      EEG/ECG Biopotential Amplifier
+                    </h3>
+                    <p class="has-text-centered project-description">
+                      High-precision biopotential amplifier for EEG and ECG
+                      signal acquisition
+                    </p>
+                    <a href="projects/bioamp/index.html" class="project-link"
+                      >View Details</a
+                    >
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content project-info">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4 project-info-title">
+                      EEG/ECG Biopotential Amplifier
+                    </p>
+                    <p class="subtitle is-6 project-info-category">
+                      <i class="far fa-calendar-alt mr-1"></i> May 2025
+                    </p>
+                  </div>
+                </div>
+                <div class="content project-info-description">
+                  Designed a low-noise, multi-channel biopotential amplifier for
+                  capturing EEG and ECG signals with medical-grade precision,
+                  featuring isolated data acquisition.
+                </div>
+                <div class="tags">
+                  <span class="tag project-tag"
+                    >Biomedical Instrumentation</span
+                  >
+                  <span class="tag project-tag">Analog Front-End</span>
+                  <span class="tag project-tag">Signal Isolation</span>
+                  <span class="tag project-tag">KiCad</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="column is-one-third-desktop is-half-tablet project-item audio"
+          >
+            <div
+              class="card project-card"
+              data-href="projects/audio-amp/index.html"
+            >
+              <div class="card-image project-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://placehold.co/800x600/FF9800/FFFFFF?text=Class-D+Audio"
+                    alt="Class-D Audio Amplifier"
+                  />
+                  <div class="project-overlay">
+                    <p class="project-category">Audio</p>
+                    <h3 class="title is-5 project-title">
+                      Class-D Audio Amplifier
+                    </h3>
+                    <p class="has-text-centered project-description">
+                      High-efficiency Class-D amplifier with digital signal
+                      processing
+                    </p>
+                    <a href="projects/audio-amp/index.html" class="project-link"
+                      >View Details</a
+                    >
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content project-info">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4 project-info-title">
+                      Class-D Audio Amplifier
+                    </p>
+                    <p class="subtitle is-6 project-info-category">
+                      <i class="far fa-calendar-alt mr-1"></i> November 2023
+                    </p>
+                  </div>
+                </div>
+                <div class="content project-info-description">
+                  Engineered a high-efficiency Class-D audio amplifier
+                  delivering 50W per channel with integrated DSP for advanced
+                  audio processing. Features Bluetooth connectivity and touch
+                  controls.
+                </div>
+                <div class="tags">
+                  <span class="tag project-tag">Class-D</span>
+                  <span class="tag project-tag">DSP</span>
+                  <span class="tag project-tag">PCB Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4 has-text-light">Ana</h3>
+            <p class="mb-4 has-text-light-grey">
+              Hardware Engineer & Electronics Enthusiast specializing in
+              embedded systems, PCB design, and industrial electronics.
+            </p>
+            <p class="has-text-light-grey">Athens, Greece</p>
+          </div>
+
+          <div class="column is-4 is-offset-1-desktop is-navigation-center">
+            <h4 class="title is-5 has-text-light">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#portfolio">Portfolio</a></li>
+              <li><a href="../index.html#learning">Learning</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="column is-3 has-text-right">
+            <div class="footer-legal-links">
+              <a href="../privacy-policy.html" class="has-text-light-grey"
+                >Privacy Policy</a
+              >
+              <a
+                href="../terms-of-service.html"
+                class="has-text-light-grey mb-0"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-centered">
+          <div class="column is-12 has-text-centered">
+            <p class="copyright has-text-light-grey">
+              &copy; <span id="current-year"></span> Ana. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="backToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

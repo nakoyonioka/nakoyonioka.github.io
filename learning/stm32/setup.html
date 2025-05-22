@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 1: Development Setup - STM32 Programming</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html">Home</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 1: Development Setup</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">STM32CubeIDE & Basic Debugging</p>
+        </div>
+
+        <div class="content">
+          <p>
+            Setting up your development environment is the first critical step
+            in STM32 programming. STM32CubeIDE is an integrated development
+            environment (IDE) provided by STMicroelectronics that simplifies the
+            development process by integrating various tools like code
+            generation, compilation, and debugging.
+          </p>
+          <p>
+            In this module, you'll learn how to install STM32CubeIDE, set up
+            your first project, and perform basic debugging to ensure your code
+            is running as expected on your STM32 board.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li>A <strong>computer</strong> (Windows, macOS, or Linux)</li>
+            <li>
+              An <strong>STM32 Development Board</strong> (e.g., STM32
+              Nucleo-F401RE, STM32 Discovery Kit)
+            </li>
+            <li>
+              A <strong>USB cable</strong> compatible with your board (usually
+              USB-A to Mini-B or Micro-B)
+            </li>
+            <li>Internet connection for software downloads</li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">1. Installing STM32CubeIDE:</h3>
+          <ol>
+            <li>
+              Go to the official STMicroelectronics website and search for
+              "STM32CubeIDE".
+            </li>
+            <li>
+              Download the installer for your operating system. You might need
+              to register for an ST account.
+            </li>
+            <li>
+              Run the installer and follow the on-screen instructions. It's
+              recommended to install all default components.
+            </li>
+            <li>
+              Once installed, launch STM32CubeIDE. You'll be prompted to select
+              a workspace. Choose a convenient location for your projects.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">
+            2. Creating Your First Project (Blink LED):
+          </h3>
+          <p>
+            We'll create a simple project to blink an LED on your development
+            board.
+          </p>
+          <ol>
+            <li>
+              In STM32CubeIDE, go to
+              <strong>File > New > STM32 Project</strong>.
+            </li>
+            <li>
+              In the "Target Selection" window, select your specific STM32 board
+              from the "Board Selector" tab (e.g., "NUCLEO-F401RE"). Click
+              "Next".
+            </li>
+            <li>
+              Give your project a name (e.g., "MyFirstBlinky"), select "C++" or
+              "C" as the "Targeted Language" (C is common for embedded), and
+              click "Finish".
+            </li>
+            <li>
+              If prompted, initialize all peripherals to their default mode.
+            </li>
+            <li>
+              The Device Configuration Tool (i.e., .ioc file) will open. This
+              graphical tool allows you to configure pins, clocks, and
+              peripherals.
+              <ul>
+                <li>
+                  Find the LED pin on your board's schematic (e.g., PA5 for
+                  Nucleo-F401RE).
+                </li>
+                <li>
+                  Click on that pin in the graphical view, and select
+                  "GPIO_Output".
+                </li>
+                <li>
+                  In the "Pinout & Configuration" tab, go to "System Core >
+                  GPIO". Find your LED pin (e.g., PA5). You can change its "User
+                  Label" to something like "LED_PIN" for better readability.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Save the .ioc file (File > Save). This will generate the initial C
+              code for your project.
+            </li>
+            <li>
+              Navigate to the `main.c` (or `main.cpp`) file in your project
+              explorer.
+            </li>
+            <li>
+              Add the following code inside the <code>while(1)</code> loop in
+              `main.c`:
+              <pre><code class="code-font">
+/* USER CODE BEGIN 3 */
+HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin); // Toggle the LED pin
+HAL_Delay(500); // Delay for 500 milliseconds
+/* USER CODE END 3 */
+              </code></pre>
+              <p>
+                Replace `LED_GPIO_Port` and `LED_Pin` with the actual port and
+                pin macros generated by CubeMX (e.g., `LD2_GPIO_Port`, `LD2_Pin`
+                for Nucleo boards).
+              </p>
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">3. Building and Uploading Your Code:</h3>
+          <ol>
+            <li>
+              <strong>Build Project:</strong> Click the "Build" icon (hammer) in
+              the toolbar. This will compile your code. Check the "Console" view
+              for any errors.
+            </li>
+            <li>
+              <strong>Connect Board:</strong> Connect your STM32 development
+              board to your computer using the USB cable.
+            </li>
+            <li>
+              <strong>Run/Debug:</strong> Click the "Run" icon (green play
+              button) or "Debug" icon (bug) in the toolbar. This will upload the
+              code to your board.
+            </li>
+            <li>
+              If successful, you should see the LED on your STM32 board start
+              blinking every 500 milliseconds.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">4. Basic Debugging:</h3>
+          <p>
+            Debugging is essential for finding and fixing issues in your code.
+          </p>
+          <ol>
+            <li>
+              Click the "Debug" icon (bug) in the toolbar. This will switch
+              STM32CubeIDE to the Debug perspective.
+            </li>
+            <li>
+              The debugger will halt execution at the beginning of your `main`
+              function.
+            </li>
+            <li>
+              <strong>Breakpoints:</strong> Double-click on the left margin of
+              the code editor next to a line of code (e.g.,
+              `HAL_GPIO_TogglePin(...)`) to set a breakpoint. When the program
+              runs, it will pause at this line.
+            </li>
+            <li>
+              <strong>Resume:</strong> Click the "Resume" button (green play
+              button) to continue execution until the next breakpoint or the end
+              of the program.
+            </li>
+            <li>
+              <strong>Step Over:</strong> Click "Step Over" (curved arrow) to
+              execute the current line of code and move to the next, without
+              stepping into functions.
+            </li>
+            <li>
+              <strong>Variables View:</strong> In the "Variables" window, you
+              can inspect the values of your program's variables in real-time as
+              you step through the code.
+            </li>
+            <li>
+              <strong>Expressions View:</strong> You can add specific
+              expressions or register values to monitor them.
+            </li>
+            <li>
+              To exit debugging, click the "Terminate" button (red square).
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Troubleshooting Tips:</h3>
+          <ul>
+            <li>
+              <strong>Compilation Errors:</strong> Check the "Console" or
+              "Problems" view for error messages. Common issues include typos,
+              missing semicolons, or incorrect variable names.
+            </li>
+            <li>
+              <strong>Board Not Detected/Upload Fails:</strong>
+              <ul>
+                <li>Ensure the USB cable is properly connected.</li>
+                <li>
+                  Check if the necessary drivers are installed (STM32CubeIDE
+                  usually installs them).
+                </li>
+                <li>Try a different USB port or cable.</li>
+                <li>Ensure your board is powered on.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>LED Not Blinking:</strong>
+              <ul>
+                <li>
+                  Verify you selected the correct GPIO pin in the Device
+                  Configuration Tool.
+                </li>
+                <li>Ensure the pin is configured as "GPIO_Output".</li>
+                <li>
+                  Check if the `HAL_GPIO_TogglePin` and `HAL_Delay` calls are
+                  inside the `while(1)` loop.
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <p class="mt-6">
+            You've successfully set up your STM32 development environment,
+            created a basic project, and learned how to use essential debugging
+            features. This foundation will be crucial as you delve into more
+            complex STM32 programming topics.
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="index.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Back to Course Overview</span>
+            </a>
+            <a href="hal-gpio.html" class="button is-primary">
+              <span>Next Module: GPIO & Interrupts</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

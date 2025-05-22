@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 1: Blinking an LED - Arduino Basics Series</title>
+    <meta
+      name="description"
+      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, TinyML, 3D prototyping."
+    />
+    <meta
+      name="keywords"
+      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
+    />
+    <meta name="author" content="Ana" />
+    <link rel="canonical" href="https://anasmolic.dev/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 4px;
+        overflow-x: auto;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+      code {
+        font-family: monospace;
+        color: var(--text-dark); /* Ensure code text is dark */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circuit-pattern"></div>
+
+    <nav
+      class="navbar is-fixed-top is-scrolled"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-4" href="../../index.html">
+            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="../../index.html">Home</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="../index.html">Learning Resources</a>
+            </li>
+            <li>
+              <a href="index.html">Arduino Basics Series</a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">Blinking an LED</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">Module 1: Blinking an LED</h1>
+          <hr class="mb-4" />
+          <p class="subtitle is-4">Your First Arduino Program</p>
+        </div>
+
+        <div class="content">
+          <p>
+            Welcome to your very first Arduino project! The "Blink" example is
+            the "Hello World" of microcontrollers. It's a simple, yet powerful
+            introduction to programming and interacting with hardware. By the
+            end of this module, you'll have an LED blinking on your breadboard,
+            controlled by your Arduino.
+          </p>
+
+          <h3 class="title is-3 mt-5">What You'll Need:</h3>
+          <ul>
+            <li>An <strong>Arduino board</strong> (e.g., Arduino Uno)</li>
+            <li>A USB cable (to connect Arduino to your computer)</li>
+            <li>A <strong>breadboard</strong></li>
+            <li>One <strong>LED</strong> (any color)</li>
+            <li>
+              One <strong>220 Ohm resistor</strong> (or similar, e.g., 180-330
+              Ohm)
+            </li>
+            <li>Jumper wires</li>
+            <li><strong>Arduino IDE</strong> installed on your computer</li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">Circuit Diagram:</h3>
+          <p>
+            Connect the components on your breadboard as shown in the diagram.
+            Remember that LEDs are polarized: the longer leg is the anode (+)
+            and connects to the Arduino pin via a resistor; the shorter leg is
+            the cathode (-) and connects to GND.
+          </p>
+          <figure class="image is-4by3">
+            <img
+              src="/api/placeholder/800/600?text=Blink+LED+Circuit+Diagram"
+              alt="Blink LED Circuit Diagram"
+            />
+            <figcaption class="has-text-centered mt-2">
+              Connect an LED to Arduino Pin 13 with a current-limiting resistor.
+            </figcaption>
+          </figure>
+          <ol class="mt-4">
+            <li>
+              Insert the <strong>220 Ohm resistor</strong> into your breadboard.
+            </li>
+            <li>
+              Connect one end of the resistor to
+              <strong>Arduino Digital Pin 13</strong>.
+            </li>
+            <li>
+              Connect the other end of the resistor to the
+              <strong>long leg (anode)</strong> of your LED.
+            </li>
+            <li>
+              Connect the <strong>short leg (cathode)</strong> of your LED to
+              the <strong>GND</strong> (Ground) rail on your breadboard.
+            </li>
+            <li>
+              Connect a jumper wire from an <strong>Arduino GND pin</strong> to
+              the <strong>GND rail</strong> on your breadboard.
+            </li>
+          </ol>
+
+          <h3 class="title is-3 mt-5">Arduino Code (Sketch):</h3>
+          <p>
+            Open your Arduino IDE. Go to File > Examples > 01.Basics > Blink.
+            This will open the standard Blink example.
+          </p>
+          <pre><code class="code-font">
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                       // wait for a second
+}
+          </code></pre>
+          <p>Let's break down this code:</p>
+          <ul>
+            <li>
+              <code><strong>void setup() { ... }</strong></code
+              >: This function runs once when you press reset or power the
+              board. It's used for initialization.
+              <br />
+              <code><strong>pinMode(LED_BUILTIN, OUTPUT);</strong></code
+              >: Configures the specified pin (<code>LED_BUILTIN</code>, which
+              is usually pin 13 on most Arduinos) to act as an output.
+            </li>
+            <li>
+              <code><strong>void loop() { ... }</strong></code
+              >: This function runs repeatedly forever after
+              <code>setup()</code> finishes. This is where your main program
+              logic resides.
+              <br />
+              <code><strong>digitalWrite(LED_BUILTIN, HIGH);</strong></code
+              >: Sets the voltage of the <code>LED_BUILTIN</code> pin to HIGH
+              (5V), turning the LED on.
+              <br />
+              <code><strong>delay(1000);</strong></code
+              >: Pauses the program for 1000 milliseconds (1 second).
+              <br />
+              <code><strong>digitalWrite(LED_BUILTIN, LOW);</strong></code
+              >: Sets the voltage of the <code>LED_BUILTIN</code> pin to LOW
+              (0V), turning the LED off.
+            </li>
+          </ul>
+
+          <h3 class="title is-3 mt-5">Uploading the Code:</h3>
+          <ol>
+            <li>
+              Connect your Arduino board to your computer using the USB cable.
+            </li>
+            <li>
+              In the Arduino IDE, go to <strong>Tools > Board</strong> and
+              select your Arduino board (e.g., "Arduino Uno").
+            </li>
+            <li>
+              Go to <strong>Tools > Port</strong> and select the serial port
+              that corresponds to your Arduino board. (It might appear as "COMx"
+              on Windows or "/dev/tty.usbmodemxxxx" on macOS/Linux).
+            </li>
+            <li>
+              Click the <strong>Upload</strong> button (right arrow icon) in the
+              Arduino IDE.
+            </li>
+          </ol>
+          <p>
+            If everything is set up correctly, the IDE will compile the code and
+            upload it to your Arduino. You should see the LED connected to pin
+            13 (and often the built-in LED on the board itself) start blinking
+            on and off, once every second!
+          </p>
+
+          <h3 class="title is-3 mt-5">Troubleshooting Tips:</h3>
+          <ul>
+            <li>
+              <strong
+                >"Board at COMx is not available" or similar error:</strong
+              >
+              <ul>
+                <li>Ensure your Arduino is connected and powered.</li>
+                <li>
+                  Check that you've selected the correct board and port in the
+                  Tools menu.
+                </li>
+                <li>Try a different USB cable or USB port.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>LED not blinking:</strong>
+              <ul>
+                <li>
+                  Double-check your circuit connections, especially LED polarity
+                  and resistor placement.
+                </li>
+                <li>
+                  Ensure the resistor value is not too high (e.g., a 1kΩ
+                  resistor might make the LED very dim).
+                </li>
+                <li>
+                  Verify the code uploaded successfully (check the message in
+                  the Arduino IDE console).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Syntax errors in code:</strong> The Blink example should
+              be error-free. If you typed it manually, ensure exact spelling and
+              punctuation.
+            </li>
+          </ul>
+
+          <p class="mt-6">
+            Congratulations! You've successfully completed your first Arduino
+            project. You've learned how to set up your environment, write a
+            basic program, and control an electronic component. This is the
+            foundation for all your future Arduino endeavors!
+          </p>
+
+          <div class="buttons is-centered mt-5">
+            <a href="index.html" class="button is-light">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Back to Course Overview</span>
+            </a>
+            <a href="button-input.html" class="button is-primary">
+              <span>Next Module: Button Input</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <h3 class="title is-4">Ana Smolic</h3>
+            <p class="mb-4">
+              Hardware Engineer & Electronics Educator specializing in embedded
+              systems, PCB design, and industrial electronics.
+            </p>
+            <p>
+              <a href="mailto:contact@anasmolic.dev">contact@anasmolic.dev</a>
+            </p>
+            <p>Zagreb, Croatia</p>
+          </div>
+
+          <div class="column is-2">
+            <h4 class="title is-5">Navigation</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../index.html#home" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="../../index.html#portfolio" class="footer-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li><a href="../index.html" class="footer-link">Learning</a></li>
+              <li>
+                <a href="../../index.html#contact" class="footer-link"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="../../blog/index.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="../../resources/downloads.html" class="footer-link"
+                  >Free Downloads</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/tools.html" class="footer-link"
+                  >Online Tools</a
+                >
+              </li>
+              <li>
+                <a href="../../resources/recommended.html" class="footer-link"
+                  >Recommended Gear</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="column is-3">
+            <h4 class="title is-5">Newsletter</h4>
+            <p class="mb-2">
+              Subscribe for monthly hardware tips and project ideas.
+            </p>
+            <form action="#" method="POST" class="newsletter-form">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" placeholder="Your email" />
+                </div>
+                <div class="control">
+                  <button type="submit" class="button">
+                    <span class="icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-5" />
+
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p>&copy; 2025 Ana Smolic. All Rights Reserved.</p>
+          </div>
+          <div class="column has-text-right">
+            <div class="footer-bottom-links">
+              <a href="../../privacy-policy.html">Privacy Policy</a>
+              <span class="px-2">|</span>
+              <a href="../../terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarBurger = document.querySelector(".navbar-burger");
+        const navbarMenu = document.querySelector(".navbar-menu");
+
+        navbarBurger.addEventListener("click", () => {
+          navbarBurger.classList.toggle("is-active");
+          navbarMenu.classList.toggle("is-active");
+        });
+
+        // Smooth scrolling for anchor links (adjusted for relative paths)
+        document
+          .querySelectorAll('a[href^="../../index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              const targetId = this.getAttribute("href").split("#")[1]; // Get only the ID part
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Close mobile menu if open
+                navbarBurger.classList.remove("is-active");
+                navbarMenu.classList.remove("is-active");
+
+                // Scroll to target
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
