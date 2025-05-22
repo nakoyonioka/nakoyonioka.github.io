@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navbarBurger = document.querySelector(".navbar-burger");
   const navbarMenu = document.querySelector(".navbar-menu");
-  const navbar = document.querySelector(".navbar"); // Get the navbar element
+  const navbar = document.querySelector(".navbar");
 
   navbarBurger.addEventListener("click", () => {
     navbarBurger.classList.toggle("is-active");
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         path.setAttribute("d", d);
         path.setAttribute("fill", "none");
-        path.setAttribute("stroke", "#4FC3F7"); /* Using accent-blue directly */
+        path.setAttribute("stroke", "#4FC3F7");
         path.setAttribute("stroke-width", "2");
         svg.appendChild(path);
 
@@ -98,10 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
           circle.setAttribute("cx", x);
           circle.setAttribute("cy", y);
           circle.setAttribute("r", 3 + Math.random() * 2);
-          circle.setAttribute(
-            "fill",
-            "#4FC3F7"
-          ); /* Using accent-blue directly */
+          circle.setAttribute("fill", "#4FC3F7");
           svg.appendChild(circle);
         }
       }

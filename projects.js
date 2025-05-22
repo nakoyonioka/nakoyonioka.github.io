@@ -1,12 +1,4 @@
-// ============================================
-// AUDIO AMPLIFIER PROJECT JAVASCRIPT
-// ============================================
-
 document.addEventListener("DOMContentLoaded", function () {
-  // ============================================
-  // NAVIGATION FUNCTIONALITY
-  // ============================================
-
   // Mobile menu toggle
   const navbarBurger = document.querySelector(".navbar-burger");
   const navbarMenu = document.querySelector(".navbar-menu");
@@ -44,10 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-  // ============================================
-  // SPEC CARDS INTERACTION
-  // ============================================
 
   // Animate spec bars on scroll
   const specRows = document.querySelectorAll(".spec-row");
@@ -89,10 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
       specLabel.style.color = "var(--text-secondary)";
     });
   });
-
-  // ============================================
-  // TIMELINE INTERACTION
-  // ============================================
 
   const timelineItems = document.querySelectorAll(".timeline-item");
   let activeTimelineIndex = 0;
@@ -143,10 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ============================================
-  // DESIGN CONSIDERATIONS CATEGORY SWITCHING
-  // ============================================
-
   const categoryButtons = document.querySelectorAll(".category-btn");
   const considerationCards = document.querySelectorAll(".consideration-card");
 
@@ -174,10 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ============================================
-  // COMPONENT BADGES TOOLTIPS
-  // ============================================
-
   const componentBadges = document.querySelectorAll(
     ".component-badge[data-tooltip]"
   );
@@ -191,10 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.transform = "translateY(0) scale(1)";
     });
   });
-
-  // ============================================
-  // SCROLL ANIMATIONS AND EFFECTS
-  // ============================================
 
   // Intersection Observer for animations
   const observerOptions = {
@@ -226,10 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   animatedElements.forEach((el) => observer.observe(el));
 
-  // ============================================
-  // BACK TO TOP BUTTON
-  // ============================================
-
   const backToTopBtn = document.getElementById("backToTopBtn");
 
   if (backToTopBtn) {
@@ -251,11 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
-  // ============================================
-  // ENHANCED BUTTON EFFECTS
-  // ============================================
-
   // Cyber buttons glitch effect
   const cyberButtons = document.querySelectorAll(".btn-cyber");
 
@@ -306,10 +269,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ============================================
-  // PARTICLE SYSTEM ENHANCEMENT
-  // ============================================
-
   // Create additional interactive particles on mouse movement
   let mouseParticles = [];
   const maxMouseParticles = 5;
@@ -356,11 +315,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, 2000);
   }
-
-  // ============================================
-  // PERFORMANCE OPTIMIZATIONS
-  // ============================================
-
   // Throttle scroll events
   let ticking = false;
 
@@ -375,10 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ticking = true;
     }
   });
-
-  // ============================================
-  // ACCESSIBILITY ENHANCEMENTS
-  // ============================================
 
   // Keyboard navigation for interactive elements
   document.addEventListener("keydown", function (e) {
@@ -418,18 +368,10 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-  // ============================================
-  // FOOTER YEAR UPDATE
-  // ============================================
-
   const currentYearElement = document.getElementById("current-year");
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
   }
-
-  // ============================================
-  // ERROR HANDLING
-  // ============================================
 
   window.addEventListener("error", function (e) {
     console.warn(
@@ -438,12 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-  // ============================================
-  // INITIALIZATION COMPLETE
-  // ============================================
-
   console.log("Audio Amplifier Project: JavaScript initialized successfully");
 
-  // Add loaded class to body for CSS animations
   document.body.classList.add("js-loaded");
 });
