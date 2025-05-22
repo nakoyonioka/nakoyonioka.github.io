@@ -139,11 +139,8 @@
             and connects to the Arduino pin via a resistor; the shorter leg is
             the cathode (-) and connects to GND.
           </p>
-          <figure class="image is-4by3">
-            <img
-              src="/api/placeholder/800/600?text=Blink+LED+Circuit+Diagram"
-              alt="Blink LED Circuit Diagram"
-            />
+          <figure class="image is-4by4">
+            <img src="./led.png" alt="Blink LED Circuit Diagram" />
             <figcaption class="has-text-centered mt-2">
               Connect an LED to Arduino Pin 13 with a current-limiting resistor.
             </figcaption>
@@ -176,16 +173,17 @@
             This will open the standard Blink example.
           </p>
           <pre><code class="code-font">
+const int ledPin = 13;       // the number of the LED pin
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
+  // initialize digital pin 13 as an output.
+  pinMode(ledPin, OUTPUT);
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
 }
           </code></pre>
@@ -196,9 +194,9 @@ void loop() {
               >: This function runs once when you press reset or power the
               board. It's used for initialization.
               <br />
-              <code><strong>pinMode(LED_BUILTIN, OUTPUT);</strong></code
-              >: Configures the specified pin (<code>LED_BUILTIN</code>, which
-              is usually pin 13 on most Arduinos) to act as an output.
+              <code><strong>pinMode(ledPin, OUTPUT);</strong></code
+              >: Configures the specified pin (<code>13</code>) to act as an
+              output.
             </li>
             <li>
               <code><strong>void loop() { ... }</strong></code
@@ -206,16 +204,16 @@ void loop() {
               <code>setup()</code> finishes. This is where your main program
               logic resides.
               <br />
-              <code><strong>digitalWrite(LED_BUILTIN, HIGH);</strong></code
-              >: Sets the voltage of the <code>LED_BUILTIN</code> pin to HIGH
-              (5V), turning the LED on.
+              <code><strong>digitalWrite(ledPin, HIGH);</strong></code
+              >: Sets the voltage of the <code>13</code> pin to HIGH (5V),
+              turning the LED on.
               <br />
               <code><strong>delay(1000);</strong></code
               >: Pauses the program for 1000 milliseconds (1 second).
               <br />
-              <code><strong>digitalWrite(LED_BUILTIN, LOW);</strong></code
-              >: Sets the voltage of the <code>LED_BUILTIN</code> pin to LOW
-              (0V), turning the LED off.
+              <code><strong>digitalWrite(ledPin, LOW);</strong></code
+              >: Sets the voltage of the <code>13</code> pin to LOW (0V),
+              turning the LED off.
             </li>
           </ul>
 
