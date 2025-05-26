@@ -1,12 +1,40 @@
-// Toggle mobile navigation
 document.addEventListener("DOMContentLoaded", () => {
+  // Toggle mobile navigation
   const navbarBurger = document.querySelector(".navbar-burger");
   const navbarMenu = document.querySelector(".navbar-menu");
   const navbar = document.querySelector(".navbar");
+  const navbarItems = document.querySelectorAll(".navbar-menu .navbar-item"); // Select all navbar items
 
   navbarBurger.addEventListener("click", () => {
     navbarBurger.classList.toggle("is-active");
     navbarMenu.classList.toggle("is-active");
+  });
+
+  // Close mobile menu when a navbar item is clicked
+  navbarItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Check if the menu is active (i.e., it's a mobile view interaction)
+      if (navbarMenu.classList.contains("is-active")) {
+        navbarBurger.classList.remove("is-active");
+        navbarMenu.classList.remove("is-active");
+      }
+    });
+  });
+
+  // Close mobile menu when clicking anywhere outside the navbar burger or menu
+  document.addEventListener("click", (event) => {
+    const isClickInsideNavbarBurger = navbarBurger.contains(event.target);
+    const isClickInsideNavbarMenu = navbarMenu.contains(event.target);
+
+    // If the menu is active and the click is outside both the burger and the menu
+    if (
+      navbarMenu.classList.contains("is-active") &&
+      !isClickInsideNavbarBurger &&
+      !isClickInsideNavbarMenu
+    ) {
+      navbarBurger.classList.remove("is-active");
+      navbarMenu.classList.remove("is-active");
+    }
   });
 
   // Navbar scroll effect
@@ -18,22 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("is-scrolled");
     }
   });
-
-  // Terminal text animation for the hero title
-  const heroTitle = document.querySelector(".hero-title");
-  if (heroTitle) {
-    const originalText = heroTitle.textContent;
-    heroTitle.textContent = ""; // Clear text for typing effect
-    let i = 0;
-    function typeWriter() {
-      if (i < originalText.length) {
-        heroTitle.textContent += originalText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 75); // Adjust typing speed here
-      }
-    }
-    setTimeout(typeWriter, 1000); // Delay before starting typing
-  }
 
   // Create circuit traces animation in hero section
   const heroTraces = document.getElementById("heroTraces");
@@ -205,5 +217,149 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentYearSpan = document.getElementById("current-year");
   if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
+  }
+
+  const customSelect = document.querySelector(".custom-select");
+
+  // Only proceed if the custom select element actually exists in the DOM
+  if (customSelect) {
+    const selectedValueDisplay = customSelect.querySelector(".selected-value");
+    const optionsList = customSelect.querySelector(".options-list");
+    const hiddenSubjectSelect = document.getElementById(
+      "hidden-subject-select"
+    );
+    const options = optionsList.querySelectorAll(".option");
+
+    // Function to close the dropdown
+    const closeDropdown = () => {
+      customSelect.classList.remove("is-open");
+      optionsList.style.display = "none";
+      customSelect.setAttribute("aria-expanded", "false"); // Accessibility
+    };
+
+    // Toggle dropdown visibility on click
+    customSelect.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevent document click from closing immediately
+      const isOpen = customSelect.classList.contains("is-open");
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        // Close any other open dropdowns first (if you add more)
+        document
+          .querySelectorAll(".custom-select.is-open")
+          .forEach((openSelect) => {
+            if (openSelect !== customSelect) {
+              openSelect.classList.remove("is-open");
+              openSelect.querySelector(".options-list").style.display = "none";
+              openSelect.setAttribute("aria-expanded", "false");
+            }
+          });
+
+        customSelect.classList.add("is-open");
+        optionsList.style.display = "block";
+        customSelect.setAttribute("aria-expanded", "true"); // Accessibility
+        // Optional: Scroll to make sure it's visible if it opens off-screen
+        optionsList.scrollTop =
+          optionsList.querySelector(".option.selected")?.offsetTop -
+            optionsList.offsetTop || 0;
+      }
+    });
+
+    // Handle option selection
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const newValue = option.dataset.value;
+        const newText = option.textContent;
+
+        selectedValueDisplay.textContent = newText;
+        hiddenSubjectSelect.value = newValue; // Update the hidden select for form submission
+
+        // Remove 'selected' class from all options and add to the clicked one
+        options.forEach((o) => o.classList.remove("selected"));
+        option.classList.add("selected");
+
+        // --- IMPORTANT CHANGE HERE ---
+        // Delay the closeDropdown to ensure all updates are processed
+        setTimeout(() => {
+          closeDropdown();
+        }, 50); // A small delay, like 50 milliseconds
+
+        // Trigger change event on hidden select for form validation/listeners
+        const changeEvent = new Event("change");
+        hiddenSubjectSelect.dispatchEvent(changeEvent);
+      });
+    });
+
+    // Close dropdown when clicking outside (already there, but good to re-confirm)
+    document.addEventListener("click", (event) => {
+      if (!customSelect.contains(event.target)) {
+        closeDropdown();
+      }
+    });
+
+    // Initialize selected value (if any option is pre-selected in the HTML)
+    const initialSelectedOption =
+      hiddenSubjectSelect.querySelector("option:checked");
+    if (initialSelectedOption && initialSelectedOption.value !== "") {
+      selectedValueDisplay.textContent = initialSelectedOption.textContent;
+      // Also apply 'selected' class to the corresponding custom option
+      const matchingCustomOption = optionsList.querySelector(
+        `.option[data-value="${initialSelectedOption.value}"]`
+      );
+      if (matchingCustomOption) {
+        matchingCustomOption.classList.add("selected");
+      }
+    } else {
+      // Ensure the "Select a topic" custom option is not marked as selected initially
+      options.forEach((o) => o.classList.remove("selected"));
+    }
+
+    customSelect.addEventListener("keydown", (e) => {
+      const isDropdownOpen = customSelect.classList.contains("is-open");
+      let currentIndex = Array.from(options).findIndex((o) =>
+        o.classList.contains("selected")
+      );
+      if (currentIndex === -1 && options.length > 0) currentIndex = 0; // Default to first if none selected
+
+      switch (e.key) {
+        case "Enter":
+        case " ": // Spacebar
+          if (isDropdownOpen) {
+            if (options[currentIndex]) {
+              options[currentIndex].click(); // Simulate click on the selected option
+            }
+          } else {
+            customSelect.click(); // Open the dropdown
+          }
+          e.preventDefault(); // Prevent default scroll/form submit
+          break;
+        case "Escape":
+          closeDropdown();
+          e.preventDefault();
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          if (!isDropdownOpen) {
+            customSelect.click(); // Open dropdown
+          } else {
+            currentIndex = (currentIndex + 1) % options.length;
+            options.forEach((o) => o.classList.remove("selected"));
+            options[currentIndex].classList.add("selected");
+            options[currentIndex].scrollIntoView({ block: "nearest" }); // Scroll into view
+          }
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          if (!isDropdownOpen) {
+            customSelect.click(); // Open dropdown
+          } else {
+            currentIndex = (currentIndex - 1 + options.length) % options.length;
+            options.forEach((o) => o.classList.remove("selected"));
+            options[currentIndex].classList.add("selected");
+            options[currentIndex].scrollIntoView({ block: "nearest" }); // Scroll into view
+          }
+          break;
+      }
+    });
   }
 });

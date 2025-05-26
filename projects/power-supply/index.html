@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Adjustable Dual-Output Power Supply with current limiting protection - High-precision electronics project for lab use"
+      content="Adjustable Dual-Output Power Supply with current limiting - Electronics project based on KiCad schematics"
     />
     <title>Adjustable Power Supply</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -27,11 +27,9 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../../projects.css" />
   </head>
   <body>
-    <!-- Animated Background -->
     <div class="animated-bg">
       <div class="wave-container">
         <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -74,7 +72,6 @@
       </div>
     </div>
 
-    <!-- Enhanced Navigation -->
     <nav
       class="navbar is-fixed-top glass-nav"
       role="navigation"
@@ -119,12 +116,11 @@
       </div>
     </nav>
 
-    <!-- Enhanced Hero Section -->
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
-            <div class="column is-8 is-offset-2 has-text-centered">
+            <div class="column is-12 has-text-centered">
               <div class="hero-content">
                 <div class="project-badge">
                   <span class="badge-text">POWER ELECTRONICS</span>
@@ -138,18 +134,15 @@
                 </h1>
 
                 <h2 class="subtitle is-3 hero-subtitle typewriter">
-                  Dual-Output 5V/12V with Current Limiting
+                  Dual-Output 5V / 0-12V with Current Limiting
                 </h2>
 
-                <!-- Enhanced Tags -->
                 <div class="tags-container">
-                  <span class="cyber-tag tag-power">Power Electronics</span>
-                  <span class="cyber-tag tag-circuit">Circuit Design</span>
-                  <span class="cyber-tag tag-kicad">KiCad</span>
-                  <span class="cyber-tag tag-safety">Safety Features</span>
+                  <span class="cyber-tag tag-audio">Power Electronics</span>
+                  <span class="cyber-tag tag-pcb">KiCad</span>
+                  <span class="cyber-tag tag-analog">Safety Features</span>
                 </div>
 
-                <!-- CTA Buttons with Animation -->
                 <div class="cta-buttons">
                   <a
                     href="https://github.com/nakoyonioka/PSU"
@@ -175,16 +168,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <div class="scroll-arrow">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
     </section>
 
-    <!-- Interactive Project Summary -->
     <section class="section project-summary" id="summary">
       <div class="container">
         <div class="section-header">
@@ -197,21 +182,17 @@
             <div class="glass-box summary-content">
               <div class="summary-intro">
                 <p class="intro-text">
-                  This adjustable power supply delivers
-                  <span class="highlight-precision"
-                    >precision voltage regulation</span
-                  >
-                  with advanced
-                  <span class="highlight-protection">protection circuitry</span>
-                  for professional electronics development. Featuring
+                  This adjustable power supply delivers voltage regulation with
+                  protection circuitry. Featuring
                   <span class="highlight-dual">dual output capabilities</span>
-                  and intelligent current limiting, it represents an essential
-                  tool for any electronics laboratory.
+                  (selectable 5V fixed or 0-12V adjustable) and
+                  <span class="highlight-protection"
+                    >adjustable current limiting</span
+                  >, it is a versatile tool for electronics work.
                 </p>
               </div>
 
               <div class="columns is-multiline specs-grid">
-                <!-- Interactive Specs Cards -->
                 <div class="column is-6">
                   <div class="spec-card interactive-card">
                     <div class="card-header">
@@ -231,30 +212,20 @@
                         </div>
                         <div class="spec-row" data-spec="output">
                           <span class="spec-label">Output Options</span>
-                          <span class="spec-value">5V / 0-12V DC</span>
+                          <span class="spec-value"
+                            >Selectable 5V fixed / 0-12V DC adjustable</span
+                          >
                           <div class="spec-bar">
                             <div class="spec-fill" style="width: 100%"></div>
                           </div>
                         </div>
                         <div class="spec-row" data-spec="current">
                           <span class="spec-label">Max Current</span>
-                          <span class="spec-value">3A (adjustable)</span>
+                          <span class="spec-value"
+                            >Up to 3A (adjustable limit)</span
+                          >
                           <div class="spec-bar">
                             <div class="spec-fill" style="width: 90%"></div>
-                          </div>
-                        </div>
-                        <div class="spec-row" data-spec="ripple">
-                          <span class="spec-label">Ripple Voltage</span>
-                          <span class="spec-value">&lt; 50mV</span>
-                          <div class="spec-bar">
-                            <div class="spec-fill" style="width: 95%"></div>
-                          </div>
-                        </div>
-                        <div class="spec-row" data-spec="regulation">
-                          <span class="spec-label">Load Regulation</span>
-                          <span class="spec-value">&lt; 1%</span>
-                          <div class="spec-bar">
-                            <div class="spec-fill" style="width: 98%"></div>
                           </div>
                         </div>
                       </div>
@@ -290,35 +261,6 @@
                             <span class="info-value">Power Electronics</span>
                           </div>
                         </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Duration</span>
-                            <span class="info-value">4 weeks</span>
-                          </div>
-                        </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-code-branch"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Version</span>
-                            <span class="info-value">1.0</span>
-                          </div>
-                        </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-check-circle"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Status</span>
-                            <span class="info-value status-complete"
-                              >Design Complete</span
-                            >
-                          </div>
-                        </div>
                       </div>
                       <div class="download-section">
                         <a
@@ -339,7 +281,6 @@
       </div>
     </section>
 
-    <!-- Enhanced Technical Details -->
     <section class="section technical-section" id="technical-details">
       <div class="container">
         <div class="section-header">
@@ -348,7 +289,6 @@
         </div>
 
         <div class="columns">
-          <!-- Circuit Architecture Timeline -->
           <div class="column is-6">
             <div class="glass-box">
               <h3 class="subsection-title">Circuit Design Flow</h3>
@@ -360,13 +300,13 @@
                   <div class="timeline-content">
                     <h4 class="timeline-title">Input & Filtering Stage</h4>
                     <p class="timeline-description">
-                      12V DC input with comprehensive transient protection and
-                      multi-stage filtering
+                      12V DC input with input fuse (F301, 5A) protection and
+                      multi-capacitor filtering.
                     </p>
                     <div class="timeline-details">
                       <span class="detail-tag">Multi-Cap Filtering</span>
                       <span class="detail-tag"
-                        >Terminal Block Input Connector</span
+                        >Terminal Block Input Connector (e.g., J301, J302)</span
                       >
                     </div>
                   </div>
@@ -379,13 +319,16 @@
                   <div class="timeline-content">
                     <h4 class="timeline-title">Dual Regulation</h4>
                     <p class="timeline-description">
-                      Hybrid linear and switching regulation for optimal
-                      efficiency and noise performance
+                      Combines linear regulation (L7805 type, U301, for 5V
+                      output) and switching regulation (TPS54331DR, U302, for
+                      adjustable 0-12V output).
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">L7805 Linear</span>
-                      <span class="detail-tag">TPS54331DR Switch</span>
-                      <span class="detail-tag">Thermal Protection</span>
+                      <span class="detail-tag">L7805 Type Linear (U301)</span>
+                      <span class="detail-tag">TPS54331DR Switch (U302)</span>
+                      <span class="detail-tag"
+                        >Output Voltage Potentiometer (RV301)</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -397,13 +340,13 @@
                   <div class="timeline-content">
                     <h4 class="timeline-title">Output Selection</h4>
                     <p class="timeline-description">
-                      Relay-based switching between 5V and adjustable 0-12V
-                      outputs with complete isolation
+                      Relay-based switching (K401) selects between the 5V fixed
+                      and the adjustable 0-12V outputs, routed to banana plug
+                      connectors (J402, J403).
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">Relay Switching</span>
-                      <span class="detail-tag">LED Indicators</span>
-                      <span class="detail-tag">Isolation</span>
+                      <span class="detail-tag">Relay Switching (K401)</span>
+                      <span class="detail-tag">Output Isolation via Relay</span>
                     </div>
                   </div>
                 </div>
@@ -413,15 +356,28 @@
                     <i class="fas fa-shield-alt"></i>
                   </div>
                   <div class="timeline-content">
-                    <h4 class="timeline-title">Current Protection</h4>
+                    <h4 class="timeline-title">
+                      Current Protection & Output Control
+                    </h4>
                     <p class="timeline-description">
-                      Fast-response current limiting with precision sensing and
-                      hysteresis control
+                      Adjustable current limiting using a comparator (LM393
+                      type, U401A) and sense resistor (R403, 100mΩ). Features
+                      hysteresis (R401, R402 with U401A) to prevent oscillation.
+                      Overcurrent condition can trigger output shut-off via
+                      relay K403.
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">LM393 Comparator</span>
-                      <span class="detail-tag">100mΩ Sense</span>
-                      <span class="detail-tag">&lt;10μs Response</span>
+                      <span class="detail-tag">LM393 Comparator (U401A)</span>
+                      <span class="detail-tag"
+                        >100mΩ Sense Resistor (R403)</span
+                      >
+                      <span class="detail-tag"
+                        >Adjustable Threshold (RV401)</span
+                      >
+                      <span class="detail-tag">Hysteresis Circuit</span>
+                      <span class="detail-tag"
+                        >Output Shut-off Relay (K403)</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -433,13 +389,21 @@
                   <div class="timeline-content">
                     <h4 class="timeline-title">Measurement & Output</h4>
                     <p class="timeline-description">
-                      Precision measurement circuits with banana plug connectors
-                      for laboratory use
+                      Provides connections for external voltmeter (J404) and
+                      current meter (J406). Includes an LM358 op-amp (U402A)
+                      based circuit for internal current measurement (DMEASCUR
+                      signal). Output via banana plugs (J402, J403).
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">Differential Amp</span>
-                      <span class="detail-tag">Banana Plugs</span>
-                      <span class="detail-tag">Ground Reference</span>
+                      <span class="detail-tag"
+                        >Op-Amp Current Measurement (U402A)</span
+                      >
+                      <span class="detail-tag"
+                        >Banana Plug Outputs (J402, J403)</span
+                      >
+                      <span class="detail-tag"
+                        >External Meter Connections (J404, J406)</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -447,7 +411,6 @@
             </div>
           </div>
 
-          <!-- Interactive Design Considerations -->
           <div class="column is-6">
             <div class="design-considerations">
               <div class="consideration-card active" data-category="circuit">
@@ -462,28 +425,28 @@
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
                       <span
-                        >Linear regulation provides clean 5V with excellent
-                        noise characteristics</span
+                        >Linear regulator (L7805 type, U301) for the 5V output,
+                        offering stable voltage</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
                       <span
-                        >Switching regulation delivers efficient 0-12V with 85%
-                        efficiency</span
+                        >Switching regulator (TPS54331DR, U302) for the
+                        efficient, adjustable 0-12V output</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
                       <span
-                        >Dedicated feedback networks ensure tight
-                        regulation</span
+                        >Dedicated feedback networks for voltage regulation
+                        (e.g., R305, R306, RV301 for U302)</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
                       <span
-                        >Fast-response comparators for rapid fault
+                        >Comparators (LM393 type, U401) for current limit
                         detection</span
                       >
                     </div>
@@ -509,12 +472,14 @@
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-route"></i>
-                      <span>Wide copper traces for main power paths</span>
+                      <span
+                        >Wide copper traces intended for main power paths</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-fire"></i>
                       <span
-                        >Thermal relief patterns and copper pour for heat
+                        >Thermal relief and copper pours considered for heat
                         dissipation</span
                       >
                     </div>
@@ -532,21 +497,37 @@
                 <div class="card-content">
                   <div class="principle-list">
                     <div class="principle-item">
+                      <i class="fas fa-bolt"></i>
+                      <span
+                        >Main input fuse (F301, 5A) for overcurrent
+                        protection</span
+                      >
+                    </div>
+                    <div class="principle-item">
                       <i class="fas fa-tachometer-alt"></i>
                       <span
-                        >Precision current limiting with 100mΩ sense
-                        resistor</span
+                        >Current limiting with a 100mΩ sense resistor
+                        (R403)</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-sliders-h"></i>
-                      <span>Adjustable current threshold from 100mA to 3A</span>
+                      <span
+                        >Adjustable current threshold (via RV401) up to 3A</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-wave-square"></i>
                       <span
-                        >Hysteresis circuit prevents oscillation at
-                        threshold</span
+                        >Hysteresis circuit (e.g., R401, R402 with U401A) to
+                        prevent current limit oscillation</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-power-off"></i>
+                      <span
+                        >Overcurrent detection can trigger output shut-off using
+                        relay K403</span
                       >
                     </div>
                   </div>
@@ -565,33 +546,29 @@
                     <div class="principle-item">
                       <i class="fas fa-chart-line"></i>
                       <span
-                        >Differential amplifier using LM358 for current
-                        measurement</span
-                      >
-                    </div>
-                    <div class="principle-item">
-                      <i class="fas fa-percentage"></i>
-                      <span
-                        >Precision 1% resistors for voltage measurement</span
+                        >Differential amplifier configuration (U402A, LM358) for
+                        current measurement across R403</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-filter"></i>
                       <span
-                        >Low-pass filtering on measurement paths reduces
-                        noise</span
+                        >Low-pass filtering (e.g., C407 on VMETER, C410 on
+                        DMEASCUR) on measurement signal paths</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-plug"></i>
-                      <span>Connection points for external meters</span>
+                      <span
+                        >Connection points (J404, J406) for external voltage and
+                        current meters</span
+                      >
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Category Selector -->
             <div class="category-selector">
               <button class="category-btn active" data-category="circuit">
                 <i class="fas fa-microchip"></i>

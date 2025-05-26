@@ -3,187 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hardware Engineering Portfolio</title>
-    <meta
-      name="description"
-      content="Ana — Embedded & industrial hardware engineer: STM32, ESP32, ROS2 robotics, railway safety systems, AI, 3D prototyping."
-    />
-    <meta
-      name="keywords"
-      content="embedded systems, STM32, ESP32, robotics, ROS2, railway safety, SIL-2, SIL-4, 3D prototyping, industrial design, PCB layout, Raspberry Pi, Python"
-    />
+    <title>Ana - Hardware Engineer</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
-    <div class="circuit-pattern"></div>
+    <div class="animated-bg">
+      <div class="wave-container">
+        <svg
+          class="wave"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#0a0a0a"
+            fill-opacity="1"
+            d="M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#1a1a2e"
+            fill-opacity="1"
+            d="M0,160L80,181.3C160,203,320,245,480,224C640,203,800,117,960,101.3C1120,85,1280,139,1360,165.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-3"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#16213e"
+            fill-opacity="1"
+            d="M0,128L80,149.3C160,171,320,213,480,208C640,203,800,149,960,138.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="floating-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+      </div>
+    </div>
 
     <nav
-      class="navbar is-fixed-top"
+      class="navbar is-fixed-top glass-nav"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item title is-4" href="#">
-            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          <a class="navbar-item logo-container" href="#home">
+            <i class="fas fa-microchip"></i>
+            <span class="logo-text">Ana</span>
           </a>
+
           <a
             role="button"
-            class="navbar-burger"
+            class="navbar-burger burger-glow"
             aria-label="menu"
             aria-expanded="false"
-            data-target="navMenu"
+            data-target="navbarBasicExample"
           >
-            <span></span><span></span><span></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
         </div>
-        <div id="navMenu" class="navbar-menu">
+
+        <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item" href="#home">Home</a>
-            <a class="navbar-item" href="#about">About</a>
-            <a class="navbar-item" href="#portfolio">Portfolio</a>
-            <a class="navbar-item" href="#learning">Learning Resources</a>
-            <a class="navbar-item" href="#contact">Contact</a>
+            <a class="navbar-item nav-glow" href="#home"> Home </a>
+            <a class="navbar-item nav-glow" href="#about"> About </a>
+            <a class="navbar-item nav-glow" href="#portfolio"> Portfolio </a>
+            <a class="navbar-item nav-glow" href="#learning"> Learning </a>
+            <a class="navbar-item nav-glow" href="#contact"> Contact </a>
           </div>
         </div>
       </div>
     </nav>
 
     <section id="home" class="hero is-fullheight">
-      <div class="hero-gradient"></div>
-      <div class="circuit-traces" id="heroTraces"></div>
-      <div class="hero-body hero-content">
-        <div class="container has-text-centered">
-          <h1 class="title is-1 hero-title">Ana</h1>
-          <h2 class="subtitle is-3 hero-subtitle">
-            Embedded & Industrial Hardware Engineer
-          </h2>
-          <p class="subtitle is-5 hero-subtitle mb-6">
-            Creating intelligent electronics: from PCB design to embedded
-            firmware
+      <div class="hero-body">
+        <div class="container has-text-centered hero-content">
+          <h1 class="title is-1 hero-title">
+            Designing the Future of Electronics
+          </h1>
+          <p class="subtitle is-3 hero-subtitle">
+            Specializing in embedded systems, PCB design, and industrial
+            electronics.
           </p>
-          <div class="buttons is-centered mt-5 hero-buttons">
-            <a href="#portfolio" class="button is-large">
-              <span class="icon"><i class="fas fa-project-diagram"></i></span>
-              <span>View My Work</span>
+
+          <div class="cta-buttons">
+            <a href="#portfolio" class="button btn-cyber btn-primary">
+              <span class="btn-content">
+                <i class="fas fa-rocket"></i> My Projects
+              </span>
+              <span class="btn-glitch"></span>
             </a>
-            <a href="#contact" class="button is-large">
-              <span class="icon"><i class="fas fa-envelope"></i></span>
-              <span>Get In Touch</span>
+            <a href="#contact" class="button btn-cyber btn-secondary">
+              <span class="btn-content">
+                <i class="fas fa-envelope"></i> Contact Me
+              </span>
+              <span class="btn-glitch"></span>
             </a>
           </div>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <a href="#about" class="scroll-arrow">
+          <i class="fas fa-arrow-down"></i>
+        </a>
       </div>
     </section>
 
     <section id="about" class="section about-section">
       <div class="container">
-        <div class="has-text-centered mb-6">
-          <h2 class="title is-2 about-heading">About Me</h2>
-          <hr class="mb-5" />
+        <div class="section-header">
+          <h2 class="title is-2 section-title">About Me</h2>
+          <div class="section-line"></div>
         </div>
         <div class="columns is-vcentered">
-          <div class="column is-two-thirds">
-            <div class="content is-medium about-content">
-              <h3 class="title is-4 has-text-primary">
-                Hardware Engineer & DIY Electronics Enthusiast
-              </h3>
-              <p class="mb-4 about-text">
-                With a Bachelor's in Electrical Engineering and an M.S. in
-                Electronic & Computer Engineering, I've spent the past seven
-                years developing embedded systems and industrial hardware. My
-                expertise spans STM32, Raspberry Pi, ESP32, and 8051
-                microcontrollers, with a focus on creating robust,
-                production-ready electronics.
-              </p>
-              <p class="mb-4 about-text">
-                My professional journey began with designing an innovative
-                in-wheel motor and STM32-based control system for electric
-                bicycles. Since then, I've worked on safety-critical systems for
-                railway signaling (SIL-2/SIL-4 certified), developed ROS2-based
-                robotics platforms, and implemented AI solutions for edge
-                computing and computer vision applications.
-              </p>
-              <p class="mb-4 about-text">
-                I'm passionate about sharing knowledge and helping others break
-                into the world of electronics and hardware. This drives my
-                commitment to creating accessible resources that simplify
-                complex concepts and guide aspiring engineers through practical,
-                hands-on projects.
-              </p>
-            </div>
+          <div class="column is-one-third">
+            <figure class="image is-256x256 mx-auto animate-in">
+              <img
+                class="is-rounded profile-picture"
+                src="images/profile.jpg"
+                alt="Profile Picture"
+              />
+            </figure>
           </div>
-          <div class="column">
-            <div class="box skills-box">
-              <h4 class="title is-5 mb-4">Core Competencies</h4>
-
-              <div class="skill-item mb-4">
-                <div class="is-flex is-justify-content-space-between mb-2">
-                  <span class="has-text-weight-medium"
-                    >Embedded Systems Design</span
-                  >
-                  <span>95%</span>
-                </div>
-                <div class="skill-progress">
-                  <div class="skill-progress-bar" style="width: 95%"></div>
-                </div>
-              </div>
-
-              <div class="skill-item mb-4">
-                <div class="is-flex is-justify-content-space-between mb-2">
-                  <span class="has-text-weight-medium"
-                    >PCB Layout & Design</span
-                  >
-                  <span>90%</span>
-                </div>
-                <div class="skill-progress">
-                  <div class="skill-progress-bar" style="width: 90%"></div>
-                </div>
-              </div>
-
-              <div class="skill-item mb-4">
-                <div class="is-flex is-justify-content-space-between mb-2">
-                  <span class="has-text-weight-medium"
-                    >Firmware Development</span
-                  >
-                  <span>85%</span>
-                </div>
-                <div class="skill-progress">
-                  <div class="skill-progress-bar" style="width: 85%"></div>
-                </div>
-              </div>
-
-              <div class="skill-item mb-4">
-                <div class="is-flex is-justify-content-space-between mb-2">
-                  <span class="has-text-weight-medium">Robotics & ROS2</span>
-                  <span>80%</span>
-                </div>
-                <div class="skill-progress">
-                  <div class="skill-progress-bar" style="width: 80%"></div>
-                </div>
-              </div>
+          <div class="column is-two-thirds">
+            <div class="content glass-box animate-in">
+              <h3 class="title is-3 about-greeting">Hello, I'm Ana!</h3>
+              <p class="about-text">
+                I am a passionate electronics and hardware engineer with a deep
+                interest in embedded systems design and PCB development. With a
+                Bachelor's in Electrical Engineering and an M.S. in Electronic &
+                Computer Engineering, I've spent the past seven years developing
+                embedded systems and industrial hardware. My expertise spans
+                STM32, Raspberry Pi, ESP32, and 8051 microcontrollers, with a
+                focus on creating robust, production-ready electronics.
+              </p>
+              <p class="about-text">
+                With a strong foundation in both theoretical principles and
+                practical applications I enjoy tackling complex challenges. My
+                professional journey began with designing an innovative in-wheel
+                motor and STM32-based control system for electric bicycles.
+                Since then, I've worked on safety-critical systems for railway
+                signaling (SIL-2/SIL-4 certified), developed ROS2-based robotics
+                platforms, and implemented AI solutions for edge computing and
+                computer vision applications.
+              </p>
             </div>
           </div>
         </div>
@@ -192,231 +187,126 @@
 
     <section id="portfolio" class="section portfolio-section">
       <div class="container">
-        <div class="has-text-centered mb-6">
-          <h2 class="title is-2 portfolio-heading">Featured Projects</h2>
-          <hr class="mb-3" />
+        <div class="section-header">
+          <h2 class="title is-2 section-title">My Projects</h2>
+          <div class="section-line"></div>
         </div>
-
-        <div class="tabs-container">
-          <div class="buttons is-centered mb-5 portfolio-filters">
-            <button class="button filter-button is-active" data-filter="all">
-              All Projects
-            </button>
-            <button class="button filter-button" data-filter="power">
-              Power Supply
-            </button>
-            <button class="button filter-button" data-filter="biomedical">
-              Biomedical
-            </button>
-            <button class="button filter-button" data-filter="audio">
-              Audio
-            </button>
-            <button class="button filter-button" data-filter="embedded">
-              Embedded Systems
-            </button>
-          </div>
-        </div>
-
-        <div class="columns is-multiline project-list">
-          <div
-            class="column is-one-third-desktop is-half-tablet project-item power"
-          >
-            <div
-              class="card project-card"
-              data-href="projects/power-supply/index.html"
+        <div class="columns is-multiline">
+          <div class="column is-one-third-desktop">
+            <a
+              href="projects/audio-amp/index.html"
+              class="portfolio-card glass-box animate-in"
             >
-              <div class="card-image project-image">
-                <figure class="image is-4by3">
-                  <img
-                    src="https://placehold.co/800x600/4CAF50/FFFFFF?text=Power+Supply"
-                    alt="Adjustable Power Supply"
-                  />
-                  <div class="project-overlay">
-                    <p class="project-category">Power Supply</p>
-                    <h3 class="title is-5 project-title">
-                      Adjustable Power Supply
-                    </h3>
-                    <p class="project-description">
-                      Dual-Output 5V/12V with Current Limiting Protection
-                    </p>
-                    <a
-                      href="projects/power-supply/index.html"
-                      class="project-link"
-                      >View Details</a
-                    >
-                  </div>
-                </figure>
-              </div>
-              <div class="card-content project-info">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4 project-info-title">
-                      Adjustable Power Supply
-                    </p>
-                    <p class="subtitle is-6 project-info-category">
-                      <i class="far fa-calendar-alt mr-1"></i> May 2025
-                    </p>
-                  </div>
-                </div>
-                <div class="content project-info-description">
-                  A versatile lab power supply with selectable 5V/12V outputs,
-                  adjustable current limiting protection, and built-in
-                  voltage/current monitoring for safe and reliable electronic
-                  circuit testing.
-                </div>
-                <div class="tags">
-                  <span class="tag project-tag">Power Electronics</span>
-                  <span class="tag project-tag">KiCad</span>
-                  <span class="tag project-tag">Circuit Design</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="column is-one-third-desktop is-half-tablet project-item biomedical"
-          >
-            <div
-              class="card project-card"
-              data-href="projects/bioamp/index.html"
-            >
-              <div class="card-image project-image">
-                <figure class="image is-4by3">
-                  <img
-                    src="https://placehold.co/800x600/2196F3/FFFFFF?text=BioAmp"
-                    alt="EEG/ECG Biopotential Amplifier"
-                  />
-                  <div class="project-overlay">
-                    <p class="project-category">Biomedical</p>
-                    <h3 class="title is-5 project-title">
-                      EEG/ECG Biopotential Amplifier
-                    </h3>
-                    <p class="has-text-centered project-description">
-                      High-precision biopotential amplifier for EEG and ECG
-                      signal acquisition
-                    </p>
-                    <a href="projects/bioamp/index.html" class="project-link"
-                      >View Details</a
-                    >
-                  </div>
-                </figure>
-              </div>
-              <div class="card-content project-info">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4 project-info-title">
-                      EEG/ECG Biopotential Amplifier
-                    </p>
-                    <p class="subtitle is-6 project-info-category">
-                      <i class="far fa-calendar-alt mr-1"></i> May 2025
-                    </p>
-                  </div>
-                </div>
-                <div class="content project-info-description">
-                  Designed a low-noise, multi-channel biopotential amplifier for
-                  capturing EEG and ECG signals with medical-grade precision,
-                  featuring isolated data acquisition.
-                </div>
-                <div class="tags">
-                  <span class="tag project-tag"
-                    >Biomedical Instrumentation</span
-                  >
-                  <span class="tag project-tag">Analog Front-End</span>
-                  <span class="tag project-tag">Signal Isolation</span>
-                  <span class="tag project-tag">KiCad</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="column is-one-third-desktop is-half-tablet project-item audio"
-          >
-            <div
-              class="card project-card"
-              data-href="projects/audio-amp/index.html"
-            >
-              <div class="card-image project-image">
+              <div class="card-image">
                 <figure class="image is-4by3">
                   <img
                     src="https://placehold.co/800x600/FF9800/FFFFFF?text=Class-D+Audio"
-                    alt="Class-D Audio Amplifier"
+                    alt="Class-D Audio"
                   />
-                  <div class="project-overlay">
-                    <p class="project-category">Audio</p>
-                    <h3 class="title is-5 project-title">
-                      Class-D Audio Amplifier
-                    </h3>
-                    <p class="has-text-centered project-description">
-                      High-efficiency Class-D amplifier with digital signal
-                      processing
-                    </p>
-                    <a href="projects/audio-amp/index.html" class="project-link"
-                      >View Details</a
-                    >
-                  </div>
                 </figure>
               </div>
-              <div class="card-content project-info">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4 project-info-title">
-                      Class-D Audio Amplifier
-                    </p>
-                    <p class="subtitle is-6 project-info-category">
-                      <i class="far fa-calendar-alt mr-1"></i> November 2023
-                    </p>
-                  </div>
-                </div>
-                <div class="content project-info-description">
-                  Engineered a high-efficiency Class-D audio amplifier
-                  delivering 50W per channel with integrated DSP for advanced
-                  audio processing. Features Bluetooth connectivity and touch
-                  controls.
-                </div>
-                <div class="tags">
-                  <span class="tag project-tag">Class-D</span>
-                  <span class="tag project-tag">DSP</span>
-                  <span class="tag project-tag">PCB Design</span>
+              <div class="card-content">
+                <p class="title is-5 portfolio-title">
+                  Class-D Audio Amplifier
+                </p>
+                <p class="subtitle is-7 portfolio-description">
+                  High-efficiency Class-D amplifier with digital signal
+                  processing
+                </p>
+                <div class="portfolio-tags">
+                  <span class="tag is-small tag-audio">Audio</span>
+                  <span class="tag is-small tag-pcb">PCB Design</span>
                 </div>
               </div>
-            </div>
+            </a>
+          </div>
+
+          <div class="column is-one-third-desktop">
+            <a
+              href="projects/bioamp/index.html"
+              class="portfolio-card glass-box animate-in"
+            >
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://placehold.co/800x600/2196F3/FFFFFF?text=Biomedical+Sensor"
+                    alt="EEG/ECG Biopotential Amplifier"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5 portfolio-title">
+                  EEG/ECG Biopotential Amplifier
+                </p>
+                <p class="subtitle is-7 portfolio-description">
+                  High-precision biopotential amplifier for EEG and ECG signal
+                  acquisition
+                </p>
+                <div class="portfolio-tags">
+                  <span class="tag is-small tag-biomedical">Biomedical</span>
+                  <span class="tag is-small tag-analog">Analog</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="column is-one-third-desktop">
+            <a
+              href="projects/power-supply/index.html"
+              class="portfolio-card glass-box animate-in"
+            >
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://placehold.co/800x600/4CAF50/FFFFFF?text=Power+Supply"
+                    alt="Adjustable Power Supply Project"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5 portfolio-title">
+                  Adjustable Power Supply
+                </p>
+                <p class="subtitle is-7 portfolio-description">
+                  Dual-Output 5V/12V with Current Limiting Protection
+                </p>
+                <div class="portfolio-tags">
+                  <span class="tag is-small tag-analog">Analog</span>
+                  <span class="tag is-small tag-pcb">Power Electronics</span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-
-        <div class="has-text-centered mt-6">
+        <div class="has-text-centered mt-5">
           <a
             href="projects/all-projects.html"
-            class="button is-primary is-medium"
+            class="button is-medium btn-cyber btn-primary"
           >
-            <span class="icon">
-              <i class="fas fa-project-diagram"></i>
+            <span class="btn-content">
+              <i class="fas fa-grip-horizontal"></i> View All Projects
             </span>
-            <span>View All Projects</span>
+            <span class="btn-glitch"></span>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="learning" class="section education-section">
+    <section id="learning" class="section learning-section">
       <div class="container">
-        <div class="has-text-centered mb-6">
-          <h2 class="title is-2">Learning Resources</h2>
-          <hr class="mb-5" />
-          <p class="subtitle is-5">
-            Educational projects to help you master electronics fundamentals
-          </p>
+        <div class="section-header">
+          <h2 class="title is-2 section-title">Learning Resources</h2>
+          <div class="section-line"></div>
         </div>
-
         <div class="columns is-multiline">
           <div class="column is-half-desktop">
-            <div class="card education-card">
+            <div class="card education-card glass-box animate-in">
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
                     <figure class="image is-64x64">
                       <span class="icon is-large education-icon">
-                        <i class="fas fa-microchip fa-3x"></i>
+                        <i class="fas fa-route fa-3x"></i>
                       </span>
                     </figure>
                   </div>
@@ -497,13 +387,13 @@
           </div>
 
           <div class="column is-half-desktop">
-            <div class="card education-card">
+            <div class="card education-card glass-box animate-in">
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
                     <figure class="image is-64x64">
                       <span class="icon is-large education-icon">
-                        <i class="fas fa-wave-square fa-3x"></i>
+                        <i class="fas fa-microchip fa-3x"></i>
                       </span>
                     </figure>
                   </div>
@@ -526,7 +416,7 @@
 
                   <div class="learning-modules mt-4">
                     <div class="columns is-multiline">
-                      <div class="column is-half">
+                      <div class="column is-one-third">
                         <a
                           href="learning/analog/voltage-dividers.html"
                           class="box module-box"
@@ -536,7 +426,7 @@
                         </a>
                       </div>
 
-                      <div class="column is-half">
+                      <div class="column is-one-third">
                         <a
                           href="learning/analog/transistor-amplifier.html"
                           class="box module-box"
@@ -548,7 +438,7 @@
                         </a>
                       </div>
 
-                      <div class="column is-half">
+                      <div class="column is-one-third">
                         <a
                           href="learning/analog/op-amp-circuits.html"
                           class="box module-box"
@@ -557,198 +447,12 @@
                           <p class="is-size-7">Practical applications</p>
                         </a>
                       </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/analog/active-filters.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">4. Active Filters</h4>
-                          <p class="is-size-7">Low-pass and high-pass design</p>
-                        </a>
-                      </div>
                     </div>
                   </div>
 
                   <div class="has-text-centered mt-4">
                     <a
                       href="learning/analog/index.html"
-                      class="button is-small is-outlined education-link"
-                    >
-                      View Full Workshop
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-half-desktop">
-            <div class="card education-card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <span class="icon is-large education-icon">
-                        <i class="fas fa-route fa-3x"></i>
-                      </span>
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 education-title">
-                      PCB Design From Scratch
-                    </p>
-                    <p class="subtitle is-6 education-description">
-                      Intermediate Level
-                    </p>
-                  </div>
-                </div>
-
-                <div class="content">
-                  <p class="education-description">
-                    Learn professional PCB design techniques using KiCad. This
-                    course covers schematic capture, component selection, layout
-                    best practices, and manufacturing preparation.
-                  </p>
-
-                  <div class="learning-modules mt-4">
-                    <div class="columns is-multiline">
-                      <div class="column is-half">
-                        <a
-                          href="learning/pcb/schematics.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">1. Schematic Design</h4>
-                          <p class="is-size-7">
-                            Symbol libraries & circuit capture
-                          </p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/pcb/footprints.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">
-                            2. Footprints & 3D Models
-                          </h4>
-                          <p class="is-size-7">Creating component libraries</p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/pcb/layout.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">3. PCB Layout</h4>
-                          <p class="is-size-7">Routing & DRC best practices</p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/pcb/fabrication.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">4. Fabrication Files</h4>
-                          <p class="is-size-7">Gerbers & assembly drawings</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="has-text-centered mt-4">
-                    <a
-                      href="learning/pcb/index.html"
-                      class="button is-small is-outlined education-link"
-                    >
-                      View Full Course
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-half-desktop">
-            <div class="card education-card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <span class="icon is-large education-icon">
-                        <i class="fas fa-microchip fa-3x"></i>
-                      </span>
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 education-title">STM32 Programming</p>
-                    <p class="subtitle is-6 education-description">
-                      Advanced Embedded Development
-                    </p>
-                  </div>
-                </div>
-
-                <div class="content">
-                  <p class="education-description">
-                    Deep dive into professional STM32 microcontroller
-                    programming. Learn HAL libraries, RTOS concepts, and
-                    real-world embedded system design techniques.
-                  </p>
-
-                  <div class="learning-modules mt-4">
-                    <div class="columns is-multiline">
-                      <div class="column is-half">
-                        <a
-                          href="learning/stm32/setup.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">1. Development Setup</h4>
-                          <p class="is-size-7">STM32CubeIDE & debugging</p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/stm32/hal-gpio.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">2. GPIO & Interrupts</h4>
-                          <p class="is-size-7">Digital I/O fundamentals</p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/stm32/communication.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">
-                            3. Communication Protocols
-                          </h4>
-                          <p class="is-size-7">UART, SPI, I2C interfaces</p>
-                        </a>
-                      </div>
-
-                      <div class="column is-half">
-                        <a
-                          href="learning/stm32/freertos.html"
-                          class="box module-box"
-                        >
-                          <h4 class="is-size-5 mb-2">
-                            4. FreeRTOS Integration
-                          </h4>
-                          <p class="is-size-7">Task management & scheduling</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="has-text-centered mt-4">
-                    <a
-                      href="learning/stm32/index.html"
                       class="button is-small is-outlined education-link"
                     >
                       View Full Course
@@ -761,8 +465,8 @@
         </div>
 
         <div class="has-text-centered mt-6">
-          <a href="learning/index.html" class="button is-primary is-medium">
-            <span class="icon">
+          <a href="learning/index.html" class="button btn-secondary is-medium">
+            <span class="icon btn-content">
               <i class="fas fa-graduation-cap"></i>
             </span>
             <span>Browse All Learning Resources</span>
@@ -773,10 +477,10 @@
 
     <section id="contact" class="section contact-section">
       <div class="container">
-        <div class="has-text-centered mb-6">
-          <h2 class="title is-2 contact-heading">Get In Touch</h2>
-          <hr class="mb-5" />
-          <p class="subtitle is-5">
+        <div class="section-header">
+          <h2 class="title is-2 section-title">Get In Touch</h2>
+          <div class="section-line"></div>
+          <p class="subtitle is-5 contact-intro-text">
             Have questions about electronics or interested in collaboration?
             Reach out!
           </p>
@@ -784,17 +488,17 @@
 
         <div class="columns is-centered">
           <div class="column is-8">
-            <div class="box contact-form">
+            <div class="box contact-form glass-box animate-in">
               <form
                 id="contact-form"
                 action="https://formspree.io/f/xzzrqgzk"
                 method="POST"
               >
                 <div class="field">
-                  <label class="label">Name</label>
+                  <label class="label has-text-white">Name</label>
                   <div class="control has-icons-left">
                     <input
-                      class="input"
+                      class="input contact-input"
                       type="text"
                       name="name"
                       placeholder="Your Name"
@@ -807,10 +511,10 @@
                 </div>
 
                 <div class="field">
-                  <label class="label">Email</label>
+                  <label class="label has-text-white">Email</label>
                   <div class="control has-icons-left">
                     <input
-                      class="input"
+                      class="input contact-input"
                       type="email"
                       name="email"
                       placeholder="your.email@example.com"
@@ -823,21 +527,41 @@
                 </div>
 
                 <div class="field">
-                  <label class="label">Subject</label>
+                  <label class="label has-text-white">Subject</label>
                   <div class="control has-icons-left">
-                    <div class="select is-fullwidth">
-                      <select name="subject" required>
-                        <option value="" disabled selected>
-                          Select a topic
-                        </option>
-                        <option value="project_inquiry">Project Inquiry</option>
-                        <option value="collaboration">
+                    <select
+                      id="hidden-subject-select"
+                      name="subject"
+                      required
+                      style="display: none"
+                    >
+                      <option value="" disabled selected>Select a topic</option>
+                      <option value="project_inquiry">Project Inquiry</option>
+                      <option value="collaboration">
+                        Collaboration Opportunity
+                      </option>
+                      <option value="consulting">Consulting Request</option>
+                      <option value="question">Technical Question</option>
+                      <option value="other">Other</option>
+                    </select>
+
+                    <div class="custom-select contact-input" tabindex="0">
+                      <div class="selected-value">Select a topic</div>
+                      <div class="options-list glass-box">
+                        <div class="option" data-value="project_inquiry">
+                          Project Inquiry
+                        </div>
+                        <div class="option" data-value="collaboration">
                           Collaboration Opportunity
-                        </option>
-                        <option value="consulting">Consulting Request</option>
-                        <option value="question">Technical Question</option>
-                        <option value="other">Other</option>
-                      </select>
+                        </div>
+                        <div class="option" data-value="consulting">
+                          Consulting Request
+                        </div>
+                        <div class="option" data-value="question">
+                          Technical Question
+                        </div>
+                        <div class="option" data-value="other">Other</div>
+                      </div>
                     </div>
                     <span class="icon is-small is-left">
                       <i class="fas fa-folder"></i>
@@ -846,10 +570,10 @@
                 </div>
 
                 <div class="field">
-                  <label class="label">Message</label>
+                  <label class="label has-text-white">Message</label>
                   <div class="control">
                     <textarea
-                      class="textarea"
+                      class="textarea contact-textarea"
                       name="message"
                       placeholder="Your message here..."
                       rows="5"
@@ -860,7 +584,7 @@
 
                 <div class="field">
                   <div class="control">
-                    <label class="checkbox">
+                    <label class="checkbox has-text-white">
                       <input type="checkbox" name="consent" required />
                       I agree to the
                       <a href="privacy-policy.html">privacy policy</a>
@@ -870,11 +594,15 @@
 
                 <div class="field has-text-centered">
                   <div class="control">
-                    <button type="submit" class="button is-medium">
-                      <span class="icon"
-                        ><i class="fas fa-paper-plane"></i
-                      ></span>
-                      <span>Send Message</span>
+                    <button
+                      type="submit"
+                      class="button is-medium btn-cyber btn-primary"
+                    >
+                      <span class="btn-content"
+                        ><i class="fas fa-paper-plane"></i>
+                        <span>Send Message</span>
+                      </span>
+                      <span class="btn-glitch"></span>
                     </button>
                   </div>
                 </div>
@@ -887,7 +615,9 @@
         <div class="columns is-centered mt-6">
           <div class="column is-8">
             <div class="content has-text-centered">
-              <p class="is-size-5 mb-4">Connect with me on social media</p>
+              <p class="is-size-5 mb-4 has-text-white">
+                Connect with me on social media
+              </p>
               <div class="social-icons">
                 <a
                   href="https://github.com/nakoyonioka"

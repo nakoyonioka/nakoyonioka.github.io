@@ -41,23 +41,103 @@
       async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
     ></script>
+    <style>
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .has-text-dark {
+        color: #e0e0e0 !important;
+      }
+
+      .title,
+      .subtitle {
+        color: #ffffff;
+      }
+
+      pre {
+        background-color: #2b2b2b;
+        color: #f8f8f2;
+        border: 1px solid #3a3a3a;
+      }
+
+      code {
+        color: #f8f8f2;
+      }
+
+      a {
+        color: #4dd0e1;
+      }
+
+      a:hover {
+        color: #80deea;
+      }
+    </style>
   </head>
   <body>
-    <div class="circuit-pattern"></div>
+    <div class="animated-bg">
+      <div class="wave-container">
+        <svg
+          class="wave"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#0a0a0a"
+            fill-opacity="1"
+            d="M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#1a1a2e"
+            fill-opacity="1"
+            d="M0,160L80,181.3C160,203,320,245,480,224C640,203,800,117,960,101.3C1120,85,1280,139,1360,165.3L1440,192L1440,320L1440,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave-3"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#16213e"
+            fill-opacity="1"
+            d="M0,128L80,149.3C160,171,320,213,480,208C640,203,800,149,960,138.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="floating-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+      </div>
+    </div>
 
     <nav
-      class="navbar is-fixed-top is-scrolled"
+      class="navbar is-fixed-top glass-nav"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item title is-4" href="../../index.html">
-            <i class="fas fa-microchip mr-2"></i>Ana's Portfolio
+          <a class="navbar-item logo-brand" href="../../index.html">
+            <div class="logo-container">
+              <i class="fas fa-microchip"></i>
+              <span class="logo-text">Ana's Portfolio</span>
+            </div>
           </a>
           <a
             role="button"
-            class="navbar-burger"
+            class="navbar-burger burger-glow"
             aria-label="menu"
             aria-expanded="false"
             data-target="navMenu"
@@ -67,7 +147,19 @@
         </div>
         <div id="navMenu" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item" href="../../index.html">Home</a>
+            <a class="navbar-item nav-glow" href="../../index.html">Home</a>
+            <a class="navbar-item nav-glow" href="../../index.html#about"
+              >About</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#portfolio"
+              >Portfolio</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#learning"
+              >Learning Resources</a
+            >
+            <a class="navbar-item nav-glow" href="../../index.html#contact"
+              >Contact</a
+            >
           </div>
         </div>
       </div>
@@ -94,7 +186,7 @@
           <h1 class="title is-1">Module 3: Op-Amp Circuits</h1>
           <hr class="mb-4" />
           <p class="subtitle is-4">
-            Practical Applications of Operational Amplifiers
+            Practical Applications of Operational Amplifiers with Single Supply
           </p>
         </div>
 
@@ -109,38 +201,50 @@
           </p>
           <p>
             In this module, you'll explore the ideal op-amp characteristics and
-            build two common configurations: the
-            <strong>non-inverting amplifier</strong> and the
-            <strong>voltage follower (buffer)</strong>.
+            build a common configuration using a
+            <strong>single power supply</strong>: the
+            <strong>non-inverting amplifier</strong>. This approach is
+            especially useful for battery-powered projects or systems where a
+            negative voltage isn't readily available.
           </p>
 
           <h3 class="title is-3 mt-5">What You'll Need:</h3>
           <ul>
             <li>A <strong>breadboard</strong></li>
             <li>
-              A <strong>dual DC power supply</strong> (e.g., +/- 9V from two 9V
-              batteries, or bench supply)
+              A <strong>single DC power supply</strong> (e.g., a 9V battery, or
+              a bench supply set to +9V)
             </li>
             <li>
-              One <strong>LM741 Op-Amp IC</strong> (or a more modern equivalent
-              like TL071/TL081 for better performance)
+              One <strong>LM358 Op-Amp IC</strong> (or other single-supply
+              compatible op-amp like MCP600x series for rail-to-rail
+              input/output, or TLV246x for precision).
             </li>
             <li>
               Resistors:
               <ul>
-                <li>One <strong>10kΩ</strong></li>
-                <li>One <strong>1kΩ</strong></li>
+                <li>Two <strong>10k&Omega;</strong> resistors</li>
+                <li>
+                  Two additional <strong>10k&Omega;</strong> resistors (for the
+                  half-supply bias)
+                </li>
+              </ul>
+            </li>
+            <li>
+              Capacitors:
+              <ul>
+                <li>
+                  One
+                  <strong>0.1&micro;F (100nF) ceramic capacitor</strong> (for
+                  power supply decoupling)
+                </li>
+                <li>
+                  One <strong>10&micro;F electrolytic capacitor</strong> (for
+                  half-supply bias stability)
+                </li>
               </ul>
             </li>
             <li>Jumper wires</li>
-            <li>
-              An <strong>audio source</strong> (e.g., smartphone with a 3.5mm
-              jack cable, or a function generator)
-            </li>
-            <li>
-              A <strong>small speaker</strong> or
-              <strong>headphones</strong> (optional, for testing amplifier)
-            </li>
             <li>
               A <strong>multimeter</strong> (essential for measuring voltages)
             </li>
@@ -149,179 +253,283 @@
             </li>
           </ul>
 
-          <h3 class="title is-3 mt-5">Op-Amp Pinout (LM741 Example):</h3>
+          <h3 class="title is-3 mt-5">Op-Amp Pinout (LM358 Example):</h3>
           <p>
-            The LM741 is an 8-pin DIP (Dual In-line Package) IC. Its typical
-            pinout is:
+            The LM358 is a dual op-amp (meaning it contains two independent
+            op-amps) in an 8-pin DIP (Dual In-line Package) IC. For this
+            tutorial, we'll use one of the two op-amps within the chip. Its
+            typical pinout is:
           </p>
           <ul>
-            <li>Pin 2: Inverting Input (-)</li>
-            <li>Pin 3: Non-Inverting Input (+)</li>
-            <li>Pin 4: V- (Negative Power Supply)</li>
-            <li>Pin 6: Output</li>
-            <li>Pin 7: V+ (Positive Power Supply)</li>
-            <li>
-              Pins 1, 5, 8: Offset Null, N.C. (Not Connected) - usually unused
-              for basic circuits.
-            </li>
+            <li>Pin 1: Output A</li>
+            <li>Pin 2: Inverting Input A (-)</li>
+            <li>Pin 3: Non-Inverting Input A (+)</li>
+            <li>Pin 4: GND (Negative Power Supply, connected to 0V)</li>
+            <li>Pin 5: Non-Inverting Input B (+)</li>
+            <li>Pin 6: Inverting Input B (-)</li>
+            <li>Pin 7: Output B</li>
+            <li>Pin 8: VCC+ (Positive Power Supply)</li>
           </ul>
           <p>
             <strong>Important:</strong> Always refer to the datasheet for the
             exact pinout of your specific op-amp IC.
           </p>
 
-          <h3 class="title is-3 mt-5">Circuit 1: Non-Inverting Amplifier</h3>
+          <hr />
+          <h3 class="title is-3 mt-5">
+            Biasing the Op-Amp to Half Supply for Single Supply Operation
+          </h3>
           <p>
-            A non-inverting amplifier amplifies the input signal without
-            inverting its phase. The gain is determined by the feedback
-            resistors.
+            With a single positive power supply (e.g., +9V and 0V), op-amp
+            inputs and outputs need to be biased to a DC voltage within the
+            supply rails to allow signals to operate correctly. We'll set this
+            bias at approximately half your supply voltage.
+          </p>
+          <p><strong>Half-Supply Bias Circuit Steps:</strong></p>
+          <ol>
+            <li>
+              Connect two <strong>10k&Omega; resistors</strong> in series
+              between your
+              <strong>VCC+ (positive supply, e.g., +9V)</strong> and
+              <strong>GND (0V)</strong>.
+            </li>
+            <li>
+              The connection point between these two resistors will provide your
+              <strong>half-supply bias (V_bias)</strong>. This point should be
+              at approximately VCC+/2 (e.g., +4.5V if your supply is +9V).
+            </li>
+            <li>
+              Add a <strong>10&micro;F electrolytic capacitor</strong> from this
+              half-supply bias point to <strong>GND</strong>. The positive leg
+              of the capacitor connects to V_bias, and the negative leg connects
+              to GND. This capacitor helps stabilize the bias voltage by
+              bypassing noise.
+            </li>
+          </ol>
+          <p>
+            The op-amp's actual GND pin (Pin 4 for LM358) still connects to your
+            system's 0V.
+          </p>
+          <hr />
+
+          <h3 class="title is-3 mt-5">
+            Circuit: Non-Inverting Voltage Amplifier (Amplifying 3.3V DC)
+          </h3>
+          <p>
+            We'll set up a non-inverting amplifier to take your 3.3V DC input
+            and amplify it. The gain is determined by the feedback resistors.
           </p>
           <p>The gain formula for a non-inverting amplifier is:</p>
           $$Gain (A_v) = 1 + \frac{R_f}{R_i}$$
           <p>
             Where $R_f$ is the feedback resistor and $R_i$ is the input
-            resistor.
+            resistor. For this circuit, we will use $R_f = 10k\Omega$ and $R_i =
+            10k\Omega$, giving a gain of 2.
           </p>
 
           <h4 class="title is-4 mt-4">
-            Circuit Diagram (Non-Inverting Amplifier):
+            Circuit Diagram (Non-Inverting Amplifier - Single Supply, DC Input):
           </h4>
-          <figure class="image is-4by3">
+          <figure class="image is-4by4">
             <img
-              src="/api/placeholder/800/600?text=Non-Inverting+OpAmp+Circuit+Diagram"
-              alt="Non-Inverting Op-Amp Amplifier Circuit Diagram"
+              src="opamp.png"
+              alt="Single Supply Non-Inverting Op-Amp Amplifier Circuit Diagram with 3.3V Input"
             />
             <figcaption class="has-text-centered mt-2">
-              Non-inverting amplifier using an LM741 op-amp.
+              Non-inverting amplifier using an LM358 op-amp with 9V single
+              supply and a 3.3V DC input.
             </figcaption>
           </figure>
           <ol class="mt-4">
             <li>
-              Connect <strong>Pin 7 (V+)</strong> of the op-amp to your
-              <strong>positive power supply</strong> (e.g., +9V).
+              Connect your <strong>9V positive power supply</strong> to
+              <strong>Pin 8 (VCC+)</strong> of the op-amp.
             </li>
             <li>
-              Connect <strong>Pin 4 (V-)</strong> of the op-amp to your
-              <strong>negative power supply</strong> (e.g., -9V).
+              Connect your <strong>0V (system ground)</strong> to
+              <strong>Pin 4 (GND)</strong> of the op-amp.
             </li>
             <li>
-              Connect <strong>Pin 3 (Non-Inverting Input)</strong> to your
-              <strong>signal input</strong> (e.g., audio source positive).
+              <strong
+                >Build the Half-Supply Bias circuit as described above.</strong
+              >
+              You'll have your <strong>V_bias</strong> point at ~4.5V.
             </li>
             <li>
-              Connect the <strong>1kΩ resistor ($R_i$)</strong> from
-              <strong>Pin 2 (Inverting Input)</strong> to <strong>GND</strong>.
+              Connect your <strong>3.3V DC input signal</strong> to
+              <strong>Pin 3 (Non-Inverting Input)</strong> of the op-amp.
+              <br />
+              <strong>Note:</strong> For this direct DC input, the op-amp's
+              non-inverting input receives the signal directly. Its internal
+              feedback network, with its reference to ground, effectively biases
+              the output.
             </li>
             <li>
-              Connect the <strong>10kΩ resistor ($R_f$)</strong> from
+              Connect a <strong>10k&Omega; resistor ($R_i$)</strong> from
               <strong>Pin 2 (Inverting Input)</strong> to
-              <strong>Pin 6 (Output)</strong>.
+              <strong>0V (system ground)</strong>.
             </li>
             <li>
-              The <strong>output</strong> is taken from <strong>Pin 6</strong>.
-              Connect it to your speaker/headphones.
+              Connect another <strong>10k&Omega; resistor ($R_f$)</strong> from
+              <strong>Pin 2 (Inverting Input)</strong> to
+              <strong>Pin 1 (Output)</strong>.
+            </li>
+            <li>
+              Add a
+              <strong>0.1&micro;F (100nF) ceramic capacitor</strong> between
+              <strong>Pin 8 (VCC+)</strong> and <strong>Pin 4 (GND)</strong>,
+              placed as close as possible to the op-amp pins for power supply
+              decoupling.
             </li>
           </ol>
           <p>
-            For this circuit, with $R_f = 10k\Omega$ and $R_i = 1k\Omega$, the
-            expected gain is: $$A_v = 1 + \frac{10k\Omega}{1k\Omega} = 1 + 10 =
-            11$$ So, a 0.1V input signal should result in an 1.1V output signal.
+            For this circuit, with $R_f = 10k\Omega$ and $R_i = 10k\Omega$, the
+            expected gain is: $$A_v = 1 + \frac{10k\Omega}{10k\Omega} = 1 + 1 =
+            2$$
           </p>
-
-          <h3 class="title is-3 mt-5">Circuit 2: Voltage Follower (Buffer)</h3>
           <p>
-            A voltage follower is a special case of a non-inverting amplifier
-            with a gain of 1. Its primary purpose is to provide
-            <strong>impedance matching</strong>, allowing a high-impedance
-            source to drive a low-impedance load without significant signal
-            loss.
+            So, a 3.3V DC input signal should result in an approximately
+            <strong>6.6V DC output signal</strong>. Remember the LM358's output
+            won't reach the full 9V rail; it will be limited to about 7V-7.5V. A
+            6.6V output is well within this range.
           </p>
 
-          <h4 class="title is-4 mt-4">Circuit Diagram (Voltage Follower):</h4>
-          <figure class="image is-4by3">
-            <img
-              src="/api/placeholder/800/600?text=OpAmp+Voltage+Follower+Circuit+Diagram"
-              alt="Op-Amp Voltage Follower Circuit Diagram"
-            />
-            <figcaption class="has-text-centered mt-2">
-              Voltage follower (buffer) using an LM741 op-amp.
-            </figcaption>
-          </figure>
-          <ol class="mt-4">
+          <hr />
+
+          <h3 class="title is-3 mt-5">Managing Unused Op-Amp Sections:</h3>
+          <p>
+            The LM358 is a <strong>dual op-amp</strong>, meaning it contains two
+            independent op-amp circuits within a single package. In this
+            experiment, we are only using one of them (Op-Amp A, pins 1, 2, 3).
+            It is crucial to properly configure any unused op-amp sections to
+            prevent them from oscillating, drawing excessive current, or causing
+            noise.
+          </p>
+          <p>
+            For the unused Op-Amp B (pins 5, 6, 7), the safest and most common
+            practice for single-supply operation is to configure it as a
+            <strong
+              >unity-gain follower (buffer) with its non-inverting input tied to
+              the half-supply bias</strong
+            >. This ensures both inputs are held at a stable DC voltage,
+            preventing oscillations.
+          </p>
+          <p><strong>Steps for Unused Op-Amp B (LM358):</strong></p>
+          <ol>
             <li>
-              Connect <strong>Pin 7 (V+)</strong> and
-              <strong>Pin 4 (V-)</strong> to your power supplies as before.
+              Connect <strong>Pin 6 (Inverting Input B)</strong> directly to
+              <strong>Pin 7 (Output B)</strong>. This sets it up as a voltage
+              follower.
             </li>
             <li>
-              Connect <strong>Pin 3 (Non-Inverting Input)</strong> to your
-              <strong>signal input</strong>.
-            </li>
-            <li>
-              Connect <strong>Pin 6 (Output)</strong> directly to
-              <strong>Pin 2 (Inverting Input)</strong>. This is direct feedback.
-            </li>
-            <li>
-              The <strong>output</strong> is taken from <strong>Pin 6</strong>.
+              Connect <strong>Pin 5 (Non-Inverting Input B)</strong> directly to
+              your <strong>half-supply bias (V_bias, ~4.5V)</strong> point. This
+              provides a stable DC reference for the unused op-amp.
             </li>
           </ol>
           <p>
-            When you apply an input signal to this circuit, the output signal
-            should be almost identical in voltage to the input, but it will be
-            able to supply more current to a load.
+            This configuration will keep the unused op-amp stable and out of the
+            way, without affecting the performance of the op-amp you are
+            actively using.
           </p>
 
-          <h3 class="title is-3 mt-5">Testing the Circuits:</h3>
+          <hr />
+
+          <h3 class="title is-3 mt-5">Testing the Circuit:</h3>
           <p>
-            For both circuits, connect your audio source to the input and a
-            speaker/headphones to the output. Play music and observe the sound.
-            For the non-inverting amplifier, the sound should be noticeably
-            louder than the direct audio source. For the voltage follower, the
-            sound volume should be similar, but it will prevent loading effects
-            on your audio source.
+            Use your <strong>multimeter</strong> to measure the DC voltage at
+            key points in your circuit.
           </p>
+          <ul>
+            <li>
+              <strong>First, measure your Half-Supply Bias voltage:</strong>
+              Place one multimeter probe on your <strong>V_bias</strong> point
+              (the junction of the two 10k&Omega; resistors) and the other on
+              <strong>0V (system ground)</strong>. It should read approximately
+              <strong>4.5V</strong>.
+            </li>
+            <li>
+              <strong>Measure the input voltage:</strong> Place one multimeter
+              probe on your <strong>3.3V DC input signal</strong> and the other
+              on <strong>0V (system ground)</strong>. Confirm it's around 3.3V.
+            </li>
+            <li>
+              <strong>Measure the output voltage:</strong> Place one multimeter
+              probe on <strong>Pin 1 (Output)</strong> of the op-amp and the
+              other on <strong>0V (system ground)</strong>. You should read
+              approximately <strong>6.6V</strong>. This confirms the
+              amplification.
+            </li>
+            <li>
+              <strong>(Optional) Verify unused op-amp:</strong> Place one
+              multimeter probe on <strong>Pin 7 (Output B)</strong> of the
+              op-amp and the other on <strong>0V (system ground)</strong>. It
+              should also read approximately <strong>4.5V</strong>, confirming
+              the unused op-amp is stably biased as a buffer.
+            </li>
+          </ul>
           <p>
-            If you have an oscilloscope, you can visually compare the input and
-            output waveforms to see the amplification or buffering effect.
+            If you have an oscilloscope, you can use it to verify the DC levels
+            and stability of the bias and output.
           </p>
 
           <h3 class="title is-3 mt-5">Troubleshooting Tips:</h3>
           <ul>
             <li>
-              <strong>No output or distorted output?</strong>
+              <strong>No output or incorrect voltage?</strong>
               <ul>
                 <li>
-                  <strong>Power Supply:</strong> Ensure your dual power supply
-                  is correctly connected to V+ and V- pins (Pin 7 and Pin 4).
-                  Incorrect powering is a common issue.
+                  <strong>Power Supply:</strong> Ensure your 9V single power
+                  supply is correctly connected to VCC+ (Pin 8) and GND (Pin 4).
+                </li>
+                <li>
+                  <strong>Half-Supply Bias:</strong> Verify your half-supply
+                  bias point is at approximately half your supply voltage using
+                  a multimeter. Ensure the capacitor at this point is correctly
+                  polarized and connected.
+                </li>
+                <li>
+                  <strong>Capacitor Polarity:</strong> Electrolytic capacitors
+                  are polarized! Ensure the positive leg is connected to the
+                  more positive voltage side of the circuit.
                 </li>
                 <li>
                   <strong>Op-Amp Pinout:</strong> Double-check the pinout of
-                  your specific op-amp IC.
+                  your specific op-amp IC (LM358 in this case).
                 </li>
                 <li>
-                  <strong>Component Placement:</strong> Ensure all resistors and
-                  wires are firmly seated on the breadboard.
+                  <strong>Component Placement:</strong> Ensure all resistors,
+                  capacitors, and wires are firmly seated on the breadboard.
                 </li>
                 <li>
-                  <strong>Input Signal:</strong> Verify your audio source is
-                  providing a signal.
+                  <strong>Input Signal:</strong> Verify your 3.3V input is
+                  present and stable.
+                </li>
+                <li>
+                  <strong>Output Swing Limitations:</strong> The LM358 is not a
+                  "rail-to-rail" op-amp. Its output cannot swing all the way to
+                  the positive supply rail. With a 9V supply, the maximum output
+                  is typically around 7V to 7.5V. If your calculated output for
+                  a different gain exceeds this, it will clip.
                 </li>
               </ul>
             </li>
             <li>
-              <strong>LM741 limitations:</strong> The LM741 is an older op-amp
-              and has limitations, especially with "rail-to-rail" operation
-              (output can't swing all the way to the supply rails) and slew
-              rate. If you're not getting expected performance, consider a more
-              modern op-amp like a TL071 or TL081.
+              <strong>Unexpected readings?</strong>
+              <ul>
+                <li>
+                  <strong>Grounding:</strong> Ensure all grounds are connected
+                  to a common 0V point on your breadboard.
+                </li>
+              </ul>
             </li>
           </ul>
 
           <p class="mt-6">
-            You've now worked with the incredibly versatile op-amp!
-            Understanding these basic configurations is key to designing more
-            complex analog circuits like active filters, integrators,
-            differentiators, and comparators.
+            You've now successfully built and tested a single-supply op-amp
+            circuit that amplifies a DC signal! Understanding how to bias an
+            op-amp for single-supply operation and setting appropriate gain is a
+            fundamental skill for many practical electronics projects.
           </p>
 
           <div class="buttons is-centered mt-5">
@@ -329,9 +537,9 @@
               <span class="icon"><i class="fas fa-arrow-left"></i></span>
               <span>Previous Module: Transistor Amplifier</span>
             </a>
-            <a href="active-filters.html" class="button is-primary">
-              <span>Next Module: Active Filters</span>
-              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            <a href="index.html" class="button is-primary">
+              <span>Back to Workshop Overview</span>
+              <span class="icon"><i class="fas fa-book"></i></span>
             </a>
           </div>
         </div>

@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="../../projects.css" />
   </head>
   <body>
-    <!-- Animated Background -->
     <div class="animated-bg">
       <div class="wave-container">
         <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -74,7 +73,6 @@
       </div>
     </div>
 
-    <!-- Enhanced Navigation -->
     <nav
       class="navbar is-fixed-top glass-nav"
       role="navigation"
@@ -119,15 +117,14 @@
       </div>
     </nav>
 
-    <!-- Enhanced Hero Section -->
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
-            <div class="column is-8 is-offset-2 has-text-centered">
+            <div class="column is-12 has-text-centered">
               <div class="hero-content">
                 <div class="project-badge">
-                  <span class="badge-text">FEATURED PROJECT</span>
+                  <span class="badge-text">AUDIO ELECTRONICS</span>
                 </div>
 
                 <h1
@@ -141,15 +138,13 @@
                   Class D Stereo Amplifier with TPA3144D2
                 </h2>
 
-                <!-- Enhanced Tags -->
                 <div class="tags-container">
                   <span class="cyber-tag tag-audio">Audio Electronics</span>
-                  <span class="cyber-tag tag-pcb">PCB Design</span>
+                  <span class="cyber-tag tag-pcb">KiCad</span>
                   <span class="cyber-tag tag-class-d">Class D Technology</span>
                   <span class="cyber-tag tag-signal">Signal Processing</span>
                 </div>
 
-                <!-- CTA Buttons with Animation -->
                 <div class="cta-buttons">
                   <a
                     href="https://github.com/nakoyonioka/AudioAmp"
@@ -175,16 +170,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <div class="scroll-arrow">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
     </section>
 
-    <!-- Interactive Project Summary -->
     <section class="section project-summary" id="summary">
       <div class="container">
         <div class="section-header">
@@ -197,20 +184,18 @@
             <div class="glass-box summary-content">
               <div class="summary-intro">
                 <p class="intro-text">
-                  This stereo audio power amplifier showcases cutting-edge
-                  Class-D technology built around the
-                  <span class="highlight-chip">TPA3144D2</span> from Texas
-                  Instruments. Engineered for
-                  <span class="highlight-efficiency">maximum efficiency</span>
-                  and
-                  <span class="highlight-quality">pristine audio quality</span>,
-                  this design represents the perfect fusion of power electronics
-                  and audio engineering.
+                  This stereo audio power amplifier features a
+                  <span class="highlight-chip">TPA3144D2</span> Class D
+                  amplifier from Texas Instruments. The design includes
+                  <span class="highlight-efficiency"
+                    >dual-channel operation</span
+                  >
+                  with independent volume controls and proper filtering for
+                  high-quality audio reproduction.
                 </p>
               </div>
 
               <div class="columns is-multiline specs-grid">
-                <!-- Interactive Specs Cards -->
                 <div class="column is-6">
                   <div class="spec-card interactive-card">
                     <div class="card-header">
@@ -221,44 +206,34 @@
                     </div>
                     <div class="card-content">
                       <div class="spec-table">
-                        <div class="spec-row" data-spec="voltage">
-                          <span class="spec-label">Supply Voltage</span>
-                          <span class="spec-value">10V - 26V DC</span>
-                          <div class="spec-bar">
-                            <div class="spec-fill" style="width: 85%"></div>
-                          </div>
-                        </div>
-                        <div class="spec-row" data-spec="power">
-                          <span class="spec-label">Output Power</span>
-                          <span class="spec-value">15W per channel</span>
-                          <div class="spec-bar">
-                            <div class="spec-fill" style="width: 75%"></div>
-                          </div>
-                        </div>
-                        <div class="spec-row" data-spec="frequency">
-                          <span class="spec-label">Frequency Response</span>
-                          <span class="spec-value">20Hz - 20kHz</span>
+                        <div class="spec-row" data-spec="ic">
+                          <span class="spec-label">Main IC</span>
+                          <span class="spec-value">TPA3144D2</span>
                           <div class="spec-bar">
                             <div class="spec-fill" style="width: 100%"></div>
                           </div>
                         </div>
-                        <div class="spec-row" data-spec="thd">
-                          <span class="spec-label">THD+N</span>
-                          <span class="spec-value">&lt; 0.1%</span>
+                        <div class="spec-row" data-spec="channels">
+                          <span class="spec-label">Channels</span>
+                          <span class="spec-value">Stereo (2 Channel)</span>
                           <div class="spec-bar">
-                            <div class="spec-fill" style="width: 95%"></div>
+                            <div class="spec-fill" style="width: 100%"></div>
                           </div>
                         </div>
-                        <div class="spec-row" data-spec="snr">
-                          <span class="spec-label">SNR</span>
-                          <span class="spec-value">&gt; 95dB</span>
+                        <div class="spec-row" data-spec="gain">
+                          <span class="spec-label">Gain Control</span>
+                          <span class="spec-value"
+                            >20dB / 26dB / 32dB / 36dB</span
+                          >
                           <div class="spec-bar">
-                            <div class="spec-fill" style="width: 90%"></div>
+                            <div class="spec-fill" style="width: 85%"></div>
                           </div>
                         </div>
-                        <div class="spec-row" data-spec="efficiency">
-                          <span class="spec-label">Efficiency</span>
-                          <span class="spec-value">Up to 90%</span>
+                        <div class="spec-row" data-spec="pcb">
+                          <span class="spec-label">PCB Design</span>
+                          <span class="spec-value"
+                            >4-Layer with Ground/Power Planes</span
+                          >
                           <div class="spec-bar">
                             <div class="spec-fill" style="width: 90%"></div>
                           </div>
@@ -296,37 +271,7 @@
                             <span class="info-value">Audio Electronics</span>
                           </div>
                         </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Duration</span>
-                            <span class="info-value">3 weeks</span>
-                          </div>
-                        </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-code-branch"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Version</span>
-                            <span class="info-value">1.0</span>
-                          </div>
-                        </div>
-                        <div class="info-item">
-                          <div class="info-icon">
-                            <i class="fas fa-check-circle"></i>
-                          </div>
-                          <div class="info-content">
-                            <span class="info-label">Status</span>
-                            <span class="info-value status-complete"
-                              >Complete</span
-                            >
-                          </div>
-                        </div>
                       </div>
-
                       <div class="download-section">
                         <a
                           href="schematics/audio_power_amp.pdf"
@@ -346,34 +291,33 @@
       </div>
     </section>
 
-    <!-- Enhanced Technical Details -->
     <section class="section technical-section" id="technical-details">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Technical Deep Dive</h2>
+          <h2 class="section-title">Technical Architecture</h2>
           <div class="section-line"></div>
         </div>
 
         <div class="columns">
-          <!-- Circuit Architecture Timeline -->
           <div class="column is-6">
             <div class="glass-box">
-              <h3 class="subsection-title">Circuit Architecture Flow</h3>
+              <h3 class="subsection-title">Circuit Design Flow</h3>
               <div class="architecture-timeline">
                 <div class="timeline-item active" data-stage="power">
                   <div class="timeline-marker">
                     <i class="fas fa-plug"></i>
                   </div>
                   <div class="timeline-content">
-                    <h4 class="timeline-title">Power Supply Stage</h4>
+                    <h4 class="timeline-title">Power Supply & Control</h4>
                     <p class="timeline-description">
-                      Clean, regulated power delivery with advanced filtering
-                      and EMI suppression
+                      VCC power input with main power switch (SW1) and shutdown
+                      control (nSD pin). Internal GVDD generation provides 7V
+                      gate drive supply.
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">10V-26V DC Input</span>
-                      <span class="detail-tag">220μF Bulk Capacitors</span>
-                      <span class="detail-tag">Ferrite Bead Filtering</span>
+                      <span class="detail-tag">Power Switch Control</span>
+                      <span class="detail-tag">7V GVDD Generation</span>
+                      <span class="detail-tag">Shutdown Function</span>
                     </div>
                   </div>
                 </div>
@@ -383,15 +327,16 @@
                     <i class="fas fa-volume-up"></i>
                   </div>
                   <div class="timeline-content">
-                    <h4 class="timeline-title">Input Stage</h4>
+                    <h4 class="timeline-title">Audio Input Stage</h4>
                     <p class="timeline-description">
-                      High-fidelity audio input with precision volume control
-                      and impedance matching
+                      Dual RCA inputs (left and right channels) with individual
+                      1kΩ volume controls (RV1, RV2). Differential input
+                      configuration with AC coupling capacitors (220nF).
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">RCA Connectors</span>
-                      <span class="detail-tag">Volume Control</span>
-                      <span class="detail-tag">AC Coupling</span>
+                      <span class="detail-tag">RCA Panel Mount Connectors</span>
+                      <span class="detail-tag">1kΩ Volume Potentiometers</span>
+                      <span class="detail-tag">220nF AC Coupling</span>
                     </div>
                   </div>
                 </div>
@@ -401,15 +346,16 @@
                     <i class="fas fa-microchip"></i>
                   </div>
                   <div class="timeline-content">
-                    <h4 class="timeline-title">Amplifier Core</h4>
+                    <h4 class="timeline-title">TPA3144D2 Amplifier Core</h4>
                     <p class="timeline-description">
-                      TPA3144D2 with advanced PWM modulation and protection
-                      circuits
+                      Class D amplifier with configurable gain settings (20dB to
+                      36dB) controlled by GAIN pin voltage. Features integrated
+                      bootstrap drive circuits and spread spectrum control.
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">400kHz PWM</span>
-                      <span class="detail-tag">Differential Inputs</span>
-                      <span class="detail-tag">Bootstrap Drive</span>
+                      <span class="detail-tag">Variable Gain Control</span>
+                      <span class="detail-tag">Bootstrap Gate Drive</span>
+                      <span class="detail-tag">Spread Spectrum PWM</span>
                     </div>
                   </div>
                 </div>
@@ -419,15 +365,17 @@
                     <i class="fas fa-wave-square"></i>
                   </div>
                   <div class="timeline-content">
-                    <h4 class="timeline-title">Output Filtering</h4>
+                    <h4 class="timeline-title">Output Filtering & Terminals</h4>
                     <p class="timeline-description">
-                      Precision LC filters for clean audio reconstruction and
-                      EMI suppression
+                      Output filtering using ferrite beads (FB1-FB4) and 1nF
+                      capacitors for EMI suppression. 68Ω series resistors on
+                      output lines. Terminal blocks for speaker connections.
                     </p>
                     <div class="timeline-details">
-                      <span class="detail-tag">LC Networks</span>
-                      <span class="detail-tag">Low ESR Components</span>
-                      <span class="detail-tag">4Ω Load Capability</span>
+                      <span class="detail-tag">Ferrite Bead Filtering</span>
+                      <span class="detail-tag">1nF EMI Capacitors</span>
+                      <span class="detail-tag">68Ω Series Resistors</span>
+                      <span class="detail-tag">Terminal Block Outputs</span>
                     </div>
                   </div>
                 </div>
@@ -435,7 +383,6 @@
             </div>
           </div>
 
-          <!-- Interactive Design Considerations -->
           <div class="column is-6">
             <div class="design-considerations">
               <div class="consideration-card active" data-category="circuit">
@@ -450,21 +397,27 @@
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
                       <span
-                        >Differential input stage minimizes common-mode
+                        >TPA3144D2 Class D amplifier for high efficiency
+                        operation</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span
+                        >Differential input configuration reduces common-mode
                         noise</span
                       >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
-                      <span>Configurable gain for various input sources</span>
+                      <span
+                        >Configurable gain settings via GAIN pin voltage
+                        divider</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-check-circle"></i>
-                      <span>PWM switching minimizes power loss</span>
-                    </div>
-                    <div class="principle-item">
-                      <i class="fas fa-check-circle"></i>
-                      <span>Precision output filtering for clean audio</span>
+                      <span>Independent volume controls for each channel</span>
                     </div>
                   </div>
                 </div>
@@ -475,25 +428,34 @@
                   <div class="card-icon">
                     <i class="fas fa-drafting-compass"></i>
                   </div>
-                  <h3 class="card-title">PCB Layout Excellence</h3>
+                  <h3 class="card-title">PCB Layout Strategies</h3>
                 </div>
                 <div class="card-content">
                   <div class="principle-list">
                     <div class="principle-item">
                       <i class="fas fa-layer-group"></i>
-                      <span>Four-layer PCB with dedicated power planes</span>
+                      <span
+                        >Four-layer PCB with dedicated ground and power
+                        planes</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-route"></i>
-                      <span>High-current paths with wide traces (>40 mil)</span>
+                      <span
+                        >Strategic component placement for optimal signal
+                        flow</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-fire"></i>
+                      <span
+                        >Thermal management through proper copper pour
+                        design</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-crosshairs"></i>
-                      <span>Strategic component placement optimization</span>
-                    </div>
-                    <div class="principle-item">
-                      <i class="fas fa-star"></i>
-                      <span>Star grounding topology for analog sections</span>
+                      <span>Minimized loop areas for reduced EMI</span>
                     </div>
                   </div>
                 </div>
@@ -509,61 +471,71 @@
                 <div class="card-content">
                   <div class="principle-list">
                     <div class="principle-item">
-                      <i class="fas fa-filter"></i>
+                      <i class="fas fa-magnet"></i>
                       <span
-                        >Optimized LC filters attenuate switching
-                        frequency</span
+                        >Ferrite beads (FB1-FB4) on output lines for
+                        high-frequency filtering</span
                       >
                     </div>
                     <div class="principle-item">
-                      <i class="fas fa-magnet"></i>
-                      <span>Ferrite beads block high-frequency noise</span>
-                    </div>
-                    <div class="principle-item">
-                      <i class="fas fa-circle"></i>
-                      <span>Minimized current loop areas in ground plane</span>
+                      <i class="fas fa-filter"></i>
+                      <span
+                        >1nF ceramic capacitors for switching noise
+                        suppression</span
+                      >
                     </div>
                     <div class="principle-item">
                       <i class="fas fa-broadcast-tower"></i>
                       <span
-                        >Component placement reduces radiation coupling</span
+                        >Spread spectrum control reduces peak emissions</span
+                      >
+                    </div>
+                    <div class="principle-item">
+                      <i class="fas fa-circle"></i>
+                      <span
+                        >Ground plane provides low-impedance return path</span
                       >
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="consideration-card" data-category="thermal">
+              <div class="consideration-card" data-category="power">
                 <div class="card-header">
                   <div class="card-icon">
-                    <i class="fas fa-temperature-high"></i>
+                    <i class="fas fa-battery-full"></i>
                   </div>
-                  <h3 class="card-title">Thermal Management</h3>
+                  <h3 class="card-title">Power Management</h3>
                 </div>
                 <div class="card-content">
                   <div class="principle-list">
                     <div class="principle-item">
-                      <i class="fas fa-square"></i>
-                      <span>Large copper pour for thermal pad connection</span>
+                      <i class="fas fa-power-off"></i>
+                      <span>Main power switch (SW1) for system control</span>
                     </div>
                     <div class="principle-item">
-                      <i class="fas fa-arrows-alt-v"></i>
-                      <span>Multiple thermal vias to ground plane</span>
+                      <i class="fas fa-microchip"></i>
+                      <span
+                        >Internal GVDD regulator provides 7V gate drive
+                        supply</span
+                      >
                     </div>
                     <div class="principle-item">
-                      <i class="fas fa-wind"></i>
-                      <span>Optimized for natural convection cooling</span>
+                      <i class="fas fa-pause"></i>
+                      <span
+                        >Shutdown function via nSD pin with pull-up
+                        resistor</span
+                      >
                     </div>
                     <div class="principle-item">
-                      <i class="fas fa-fan"></i>
-                      <span>Optional heatsink mounting provision</span>
+                      <i class="fas fa-battery-three-quarters"></i>
+                      <span>Multiple power supply filtering capacitors</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Category Selector -->
             <div class="category-selector">
               <button class="category-btn active" data-category="circuit">
                 <i class="fas fa-microchip"></i>
@@ -577,9 +549,9 @@
                 <i class="fas fa-shield-alt"></i>
                 <span>EMI</span>
               </button>
-              <button class="category-btn" data-category="thermal">
-                <i class="fas fa-temperature-high"></i>
-                <span>Thermal</span>
+              <button class="category-btn" data-category="power">
+                <i class="fas fa-battery-full"></i>
+                <span>Power</span>
               </button>
             </div>
           </div>
